@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-K0YDNBXJVL');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MaAmaka Case Study — Williams Divine</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%237B5EA7'/%3E%3Ctext x='32' y='45' font-family='Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='white' font-weight='900'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Page-scoped extras. Everything is prefixed "csx-" and scoped under
+       #pg-cs-maamaka so it can never collide with the global stylesheet. -->
+  <style>
+    /* Hard safety net: nothing on this page is ever allowed to stretch it wider than the viewport. */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    #pg-cs-maamaka { max-width: 100vw; overflow-x: hidden; }
+
+    #pg-cs-maamaka .cs-step { padding: 68px 0 !important; }
+    #pg-cs-maamaka .csx-lede { font-size: 1.05rem; line-height: 1.75; color: var(--text); }
+
+    /* ---------- UI polish: hero accent blobs ---------- */
+    #pg-cs-maamaka .cs-page { position: relative; overflow: hidden; }
+    #pg-cs-maamaka .csx-blob { position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; z-index: 0; }
+    #pg-cs-maamaka .csx-blob-a { width: 320px; height: 320px; background: var(--acc); opacity: 0.16; top: -140px; right: -60px; }
+    #pg-cs-maamaka .csx-blob-b { width: 240px; height: 240px; background: #22c55e; opacity: 0.10; top: 160px; left: -90px; }
+    #pg-cs-maamaka .cs-page > *:not(.csx-blob) { position: relative; z-index: 1; }
+
+    /* ---------- UI polish: icon badges ---------- */
+    #pg-cs-maamaka .step-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 13px; flex-shrink: 0;
+      background: rgba(123,94,167,0.12); font-size: 1.25rem;
+    }
+
+    /* ---------- UI polish: decorative pull-quote mark ---------- */
+    #pg-cs-maamaka .pa-quote { position: relative; padding-left: 32px; }
+    #pg-cs-maamaka .pa-quote::before {
+      content: '\201C'; position: absolute; left: 0; top: -12px; font-size: 2.6rem; line-height: 1;
+      color: var(--acc); opacity: 0.35; font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    /* ---------- UI polish: button + nav hover lift ---------- */
+    #pg-cs-maamaka .btn, #pg-cs-maamaka .cs-nav-btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #pg-cs-maamaka .btn:hover, #pg-cs-maamaka .cs-nav-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    /* ---------- UI polish: scroll-reveal ---------- */
+    #pg-cs-maamaka .csx-reveal-pre { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    #pg-cs-maamaka .csx-reveal-in { opacity: 1; transform: translateY(0); }
+
+    /* Grid/card-heavy sections get more room instead of feeling squeezed */
+    #pg-cs-maamaka .csx-wide { max-width: 1180px !important; padding-left: 28px; padding-right: 28px; box-sizing: border-box; }
+    @media (max-width: 900px) { #pg-cs-maamaka .csx-wide { padding-left: 20px; padding-right: 20px; } }
+    @media (max-width: 560px) {
+      #pg-cs-maamaka .cs-step-inner { padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
+      #pg-cs-maamaka .csx-wide { padding-left: 16px; padding-right: 16px; }
+    }
+
+    /* Footstep trail */
+    #pg-cs-maamaka .csx-trail-wrap { max-width: 1000px; margin: 10px auto 0; padding: 0 20px; }
+    #pg-cs-maamaka .csx-trail { display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding: 6px 4px 16px; }
+    #pg-cs-maamaka .csx-trail::-webkit-scrollbar { display: none; }
+    #pg-cs-maamaka .csx-trail-node {
+      flex: 1 1 0; min-width: 92px; display: flex; flex-direction: column; align-items: center;
+      position: relative; text-align: center; cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; padding: 0;
+    }
+    #pg-cs-maamaka .csx-trail-node:not(:last-child)::after {
+      content: ''; position: absolute; top: 13px; left: 55%; width: 90%; border-top: 2px dashed var(--bdr); z-index: 0;
+    }
+    #pg-cs-maamaka .csx-trail-step {
+      font-size: 0.95rem; line-height: 26px; transition: transform 0.25s ease, filter 0.25s ease;
+      filter: grayscale(1) opacity(0.55); transform: rotate(-14deg);
+    }
+    #pg-cs-maamaka .csx-trail-node:nth-child(even) .csx-trail-step { transform: rotate(14deg); }
+    #pg-cs-maamaka .csx-trail-label { margin-top: 6px; font-size: 0.7rem; color: var(--mut); font-weight: 600; letter-spacing: 0.02em; transition: color 0.25s ease; }
+    #pg-cs-maamaka .csx-trail-node.csx-active .csx-trail-step { filter: none; transform: rotate(0deg) scale(1.25); }
+    #pg-cs-maamaka .csx-trail-node.csx-active .csx-trail-label { color: var(--acc); }
+
+    /* Hover polish on existing site classes — additive only */
+    #pg-cs-maamaka .persona-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #pg-cs-maamaka .persona-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.07); }
+    #pg-cs-maamaka .pitem { transition: transform 0.15s ease; }
+    #pg-cs-maamaka .pitem:hover { transform: translateX(4px); }
+
+    /* Wireframe -> Mockup peek carousel. Centred & static by default; only
+       becomes a scrollable, masked strip when the slides genuinely don't fit. */
+    #pg-cs-maamaka .csx-carousel-outer { position: relative; margin: 10px 0 6px; max-width: 100%; }
+    #pg-cs-maamaka .csx-carousel {
+      display: flex; flex-wrap: nowrap; justify-content: center; overflow-x: auto;
+      gap: 28px; padding: 12px 4px 22px; max-width: 100%;
+    }
+    #pg-cs-maamaka .csx-carousel::-webkit-scrollbar { height: 6px; }
+    #pg-cs-maamaka .csx-carousel::-webkit-scrollbar-thumb { background: var(--bdr); border-radius: 10px; }
+    #pg-cs-maamaka .csx-carousel-outer.csx-has-overflow .csx-carousel {
+      justify-content: flex-start; scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch; padding-right: 56px;
+      -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
+    #pg-cs-maamaka .csx-slide {
+      flex: 0 0 auto; scroll-snap-align: start; width: min(640px, 82vw);
+      display: flex; align-items: center; gap: 16px; background: var(--card-bg);
+      border: 1px solid var(--bdr); border-radius: 16px; padding: 20px;
+    }
+    #pg-cs-maamaka .csx-slide-col { flex: 1; min-width: 0; text-align: center; }
+    #pg-cs-maamaka .csx-slide-col h4 { margin-bottom: 10px; color: var(--acc); font-size: 0.95rem; }
+    #pg-cs-maamaka .csx-slide-col img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+    #pg-cs-maamaka .csx-slide-arrow { font-size: 1.6rem; color: var(--mut); opacity: 0.5; flex-shrink: 0; }
+    #pg-cs-maamaka .csx-carousel-hint {
+      text-align: center; font-size: 0.78rem; color: var(--mut); margin-top: -4px;
+      display: none; align-items: center; justify-content: center; gap: 6px;
+    }
+    #pg-cs-maamaka .csx-carousel-outer.csx-has-overflow .csx-carousel-hint { display: flex; }
+    #pg-cs-maamaka .csx-carousel-hint .csx-arrow { display: inline-block; animation: csx-nudge 1.6s ease-in-out infinite; }
+    @keyframes csx-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+
+    /* Bigger, fluid live prototype embed */
+    #pg-cs-maamaka .proto-embed { width: 100%; }
+    #pg-cs-maamaka .proto-embed iframe {
+      width: 100%; height: 75vh; min-height: 460px; max-height: 780px;
+      border: 0; border-radius: 14px; display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+
+  <div class="mob" id="mob">
+   <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Archive</a>
+    <button onclick="openCV()">CV &#x1F4C4;</button>
+    <button onclick="closeMob()" class="btn mob-cta"><a href="../index.html#contact">Say Hi &#x1F44B;</a></button>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><a href="../index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a></div>
+    <div class="nav-desk" id="navDesk">
+      <a id="nl-home" href="../index.html">Home</a>
+      <a id="nl-work" href="../work.html">Work</a>
+      <a id="nl-about" href="../about.html">About</a>
+      <a id="nl-about" href="../archive.html">Archive</a>
+      <button onclick="openCV()">CV &#x1F4C4;</button>
+      <button class="theme-btn" id="themeBtn">&#x1F319;</button>
+      <a class="btn nav-cta" href="../index.html#contact">Say Hi &#x1F44B;</a>
+    </div>
+    <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="pg-cs-maamaka" class="page">
+    <div class="cs-page">
+      <div class="csx-blob csx-blob-a" aria-hidden="true"></div>
+      <div class="csx-blob csx-blob-b" aria-hidden="true"></div>
+      <button class="cs-back" onclick="window.location='../work.html'">&larr; Back to Work</button>
+      <div class="cs-meta"><span class="tag ta">V2 Ongoing</span><span class="tag tp">Accessibility</span><span class="tag tp">Mobile</span><span
+          class="tag tp">E-Commerce</span></div>
+      <h1 class="cs-title">MaAmaka <span class="em">Inclusive Shopping &#x1F6D2;</span></h1>
+      <p class="cs-sub">A voice-controlled e-commerce app for blind Nigerians (ages 18&ndash;55) to independently purchase
+        local food items. Designed accessibility-first, from research through to prototype.</p>
+      <div class="cs-top-links"><a href="https://www.figma.com/proto/Yu3ZbaYNx1PbFQowV9crhf/Ma-Amaka?node-id=484-3195"
+          target="_blank" class="btn btn-dark">View Prototype &rarr;</a><a
+          href="https://www.figma.com/design/Yu3ZbaYNx1PbFQowV9crhf/Ma-Amaka?node-id=0-1" target="_blank"
+          class="btn btn-ghost">Figma File</a></div>
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <div class="cssn">Mobile</div>
+          <div class="cssl">Platform</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">18&ndash;55</div>
+          <div class="cssl">Age Range</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Sole</div>
+          <div class="cssl">Designer</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">V2</div>
+          <div class="cssl">Ongoing</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footstep trail -->
+    <div class="csx-trail-wrap">
+      <nav class="csx-trail" id="csxTrailMM" aria-label="Design process progress">
+        <button class="csx-trail-node" data-target="csx-sec-overview"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Overview</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-define"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Define</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-research"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Research</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-prototype"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Prototype</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-decisions"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Decisions</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-reflect"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Reflect</span></button>
+      </nav>
+    </div>
+
+    <div id="csx-sec-overview">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F50D;</span>
+          <h2>Overview</h2>
+        </div>
+        <p class="csx-lede">Imagine needing someone else's eyes just to buy your own groceries. Blind Nigerians are forced to depend on others to purchase local food items — creating vulnerability to being
+          cheated, removing personal choice, and stripping independence from a fundamental daily activity.</p>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-define">
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F464;</span>
+          <h2>Define - User Persona</h2>
+        </div>
+        <div class="persona-card">
+          <div class="persona-vis">
+            <div class="pa-avatar"><svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="sk_al" cx="45%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#C07838" />
+                    <stop offset="100%" stop-color="#8A5220" />
+                  </radialGradient>
+                </defs>
+                <circle cx="70" cy="70" r="70" fill="#7B3F00" />
+                <path d="M28 106 Q70 94 112 106 L112 140 L28 140Z" fill="#A02000" />
+                <circle cx="42" cy="120" r="2.5" fill="#FFD700" opacity=".6" />
+                <circle cx="56" cy="128" r="2.5" fill="#FFD700" opacity=".6" />
+                <circle cx="70" cy="120" r="2.5" fill="#FFD700" opacity=".6" />
+                <circle cx="84" cy="128" r="2.5" fill="#FFD700" opacity=".6" />
+                <circle cx="98" cy="120" r="2.5" fill="#FFD700" opacity=".6" />
+                <rect x="62" y="92" width="16" height="14" rx="5" fill="#B07030" />
+                <circle cx="70" cy="62" r="29" fill="url(#sk_al)" />
+                <ellipse cx="39" cy="64" rx="4.5" ry="5.5" fill="#9A6020" />
+                <ellipse cx="101" cy="64" rx="4.5" ry="5.5" fill="#9A6020" />
+                <ellipse cx="70" cy="34" rx="30" ry="15" fill="#E8A000" />
+                <ellipse cx="70" cy="30" rx="26" ry="12" fill="#D09000" />
+                <ellipse cx="70" cy="26" rx="20" ry="9" fill="#E8A000" />
+                <path d="M40 36 Q52 26 62 30 Q52 38 40 36Z" fill="#FFB800" opacity=".7" />
+                <path x1="100" y1="36" x2="88" y2="26" fill="#FFB800" d="M100 36 Q88 26 78 30 Q88 38 100 36Z"
+                  opacity=".7" />
+                <ellipse cx="70" cy="20" rx="11" ry="6" fill="#D09000" />
+                <circle cx="70" cy="20" r="5" fill="#E8A000" />
+                <ellipse cx="58" cy="64" rx="5" ry="5.5" fill="white" />
+                <ellipse cx="82" cy="64" rx="5" ry="5.5" fill="white" />
+                <circle cx="58" cy="65" r="3.2" fill="#2a1000" />
+                <circle cx="82" cy="65" r="3.2" fill="#2a1000" />
+                <circle cx="59.2" cy="63.5" r="1" fill="white" />
+                <circle cx="83.2" cy="63.5" r="1" fill="white" />
+                <path d="M52 57 Q58 55 63 57" stroke="#3a1800" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <path d="M77 57 Q82 55 88 57" stroke="#3a1800" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <path d="M64 72 Q70 77 76 72" stroke="#6a3a10" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                <circle cx="64" cy="72" r="2" fill="#7a4a18" opacity=".5" />
+                <circle cx="76" cy="72" r="2" fill="#7a4a18" opacity=".5" />
+                <path d="M60 80 Q70 88 80 80" stroke="#5a2a08" stroke-width="2" fill="none" stroke-linecap="round" />
+                <path d="M52 66 Q50 71 52 75" stroke="#8a5020" stroke-width="1" fill="none" opacity=".5" />
+                <path d="M88 66 Q90 71 88 75" stroke="#8a5020" stroke-width="1" fill="none" opacity=".5" />
+                <circle cx="55" cy="90" r="2.8" fill="#E8A000" />
+                <circle cx="62" cy="93" r="2.8" fill="#D03000" />
+                <circle cx="70" cy="94" r="2.8" fill="#E8A000" />
+                <circle cx="78" cy="93" r="2.8" fill="#D03000" />
+                <circle cx="85" cy="90" r="2.8" fill="#E8A000" />
+                <circle cx="38" cy="66" r="3" fill="#D4AF37" />
+                <ellipse cx="38" cy="74" rx="2.5" ry="4" fill="#D4AF37" />
+                <circle cx="102" cy="66" r="3" fill="#D4AF37" />
+                <ellipse cx="102" cy="74" rx="2.5" ry="4" fill="#D4AF37" />
+              </svg></div>
+            <div class="pa-name">Alabisi</div>
+            <div class="pa-role">Age 33 &bull; Benin City &bull; Widowed</div>
+          </div>
+          <div class="persona-body">
+            <h4>Mother of Two &bull; Recently Lost Sight</h4>
+            <p>Depends on neighbours and family for groceries. Feels like a burden, suspects she is regularly
+              overcharged, and wants the same shopping independence she had before losing her sight.</p>
+            <blockquote class="pa-quote">"Sometimes, I feel people cheat me when they help me get items."</blockquote>
+            <div class="pa-details">
+              <div class="pd-item">
+                <div class="pd-label">Goal</div>
+                <div class="pd-val">Shop independently</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Frustration</div>
+                <div class="pd-val">Feels cheated &amp; helpless</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Need</div>
+                <div class="pd-val">Price comparison + choice</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Context</div>
+                <div class="pd-val">2 young children, widowed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="height:24px"></div>
+        <div class="step-label"><span class="step-icon">&#x1F621;</span>
+          <h2>Pain Points</h2>
+        </div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">01</span><span>Forced dependency on others for everyday shopping</span>
+          </li>
+          <li class="pitem"><span class="pn">02</span><span>Must accept items whether she likes them or not</span></li>
+          <li class="pitem"><span class="pn">03</span><span>Vulnerable to being cheated without knowing it</span></li>
+          <li class="pitem"><span class="pn">04</span><span>No ability to compare items or prices independently</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-research">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F50E;</span>
+          <h2>Research Method</h2>
+        </div>
+        <p class="csx-lede">Qualitative interviews focused on navigation expectations, cart interactions, checkout, search, and overall
+          app experience. A simulation approach was used - asking a sighted person to simulate blindness and answer from
+          that perspective.</p>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-prototype">
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner csx-wide">
+        <div class="step-label"><span class="step-icon">&#x1F3A8;</span><h2>Accessible Voice Flow: Wireframe to Mockup</h2></div>
+        <p class="csx-lede" style="color:var(--mut);">Translating low-fidelity structural flows into high-contrast, large-touch-target accessible mobile interfaces. Scroll along to see all three flows side by side.</p>
+        <div class="csx-carousel-outer">
+          <div class="csx-carousel">
+            <div class="csx-slide">
+              <div class="csx-slide-col">
+                <h4>Wireframe 1</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka wireframe 1.png" alt="MaAmaka wireframe 1" />
+              </div>
+              <div class="csx-slide-arrow">&rarr;</div>
+              <div class="csx-slide-col">
+                <h4>Mockup 1</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka mockup 1.png" alt="MaAmaka mockup 1" />
+              </div>
+            </div>
+            <div class="csx-slide">
+              <div class="csx-slide-col">
+                <h4>Wireframe 2</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka wireframe 2.png" alt="MaAmaka wireframe 2" />
+              </div>
+              <div class="csx-slide-arrow">&rarr;</div>
+              <div class="csx-slide-col">
+                <h4>Mockup 2</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka mockup 2.png" alt="MaAmaka mockup 2" />
+              </div>
+            </div>
+            <div class="csx-slide">
+              <div class="csx-slide-col">
+                <h4>Wireframe 3</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka wireframe 3.png" alt="MaAmaka wireframe 3" />
+              </div>
+              <div class="csx-slide-arrow">&rarr;</div>
+              <div class="csx-slide-col">
+                <h4>Mockup 3</h4>
+                <img loading="lazy" decoding="async" src="images/MaAmaka Mock up 3.png" alt="MaAmaka Mockup 3" />
+              </div>
+            </div>
+          </div>
+          <div class="csx-carousel-hint">scroll for more <span class="csx-arrow">&#x2192;</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-decisions">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F3A8;</span>
+          <h2>Prototype - Accessibility Decisions</h2>
+        </div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">&#x1F446;</span><span>Double-tap interaction to prevent accidental
+              purchases</span></li>
+          <li class="pitem"><span class="pn">&#x1F50A;</span><span>Full voice system - narrates every action and
+              confirms each step</span></li>
+          <li class="pitem"><span class="pn">&#x1F3A8;</span><span>High-contrast colours + legible fonts
+              throughout</span></li>
+          <li class="pitem"><span class="pn">&#x1F46A;</span><span>Non-blind relatives considered as secondary
+              users</span></li>
+          <li class="pitem"><span class="pn">&#x2713;</span><span>Confirmation of actions at every step to keep users on
+              track</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4F1;</span>
+          <h2>Live Prototype</h2>
+        </div>
+        <div class="proto-embed">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/Yu3ZbaYNx1PbFQowV9crhf/Ma-Amaka?node-id=484-3195"
+            allowfullscreen title="MaAmaka Prototype"></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-reflect">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F9EA;</span>
+          <h2>Learnings</h2>
+        </div>
+        <p class="csx-lede">Accessibility is empathy in practice, not a checklist. Designing for users who cannot see the interface
+          forced me to think in audio flows, touch patterns, and confirmation systems rather than visual hierarchy
+          alone.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="cs-links-sec"><a href="https://www.figma.com/proto/Yu3ZbaYNx1PbFQowV9crhf/Ma-Amaka?node-id=484-3195"
+        target="_blank" class="btn btn-dark">View Prototype &rarr;</a><a
+        href="https://www.figma.com/design/Yu3ZbaYNx1PbFQowV9crhf/Ma-Amaka?node-id=0-1" target="_blank"
+        class="btn btn-ghost">Figma File</a></div>
+    <div class="cs-nav"><button class="cs-nav-btn" onclick="window.location='../projects/planetcred.html'">&larr; PlanetCred Project</button><button
+        class="cs-nav-btn" onclick="window.location='../projects/akum.html'">AKUM &rarr;</button></div>
+    <footer class="page-footer">
+      <div class="pfl" onclick="window.location='../index.html'">Divine.</a></div>
+      <p class="pfc">&copy; <span class="copy-year">2026</span> Williams Divine</p>
+      <div class="pflinks"><a onclick="window.location='../work.html'">Work</a><a onclick="window.location='../about.html'">About</a><a
+          onclick="window.location='../index.html#contact'">Contact</a></div>
+    </footer>
+  </div>
+
+  <!-- Akum proj -->
+
+  <!-- Lightbox -->
+  <div class="zoom-modal" id="zModal" onclick="closeZ()">
+    <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function () {
+      var nodes = Array.prototype.slice.call(document.querySelectorAll('#csxTrailMM .csx-trail-node'));
+      var sections = nodes.map(function (n) { return document.getElementById(n.dataset.target); });
+      nodes.forEach(function (n) {
+        n.addEventListener('click', function () {
+          var t = document.getElementById(n.dataset.target);
+          if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var idx = sections.indexOf(entry.target);
+            if (idx === -1) return;
+            if (entry.isIntersecting) {
+              nodes.forEach(function (n) { n.classList.remove('csx-active'); });
+              nodes[idx].classList.add('csx-active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+        sections.forEach(function (s) { if (s) observer.observe(s); });
+      }
+    })();
+
+    // The wireframe->mockup carousel only scrolls when the slides genuinely
+    // don't fit at full size. Otherwise it stays centred and static.
+    (function () {
+      var outers = Array.prototype.slice.call(document.querySelectorAll('.csx-carousel-outer'));
+      function checkOverflow() {
+        outers.forEach(function (outer) {
+          var track = outer.querySelector('.csx-carousel');
+          if (!track) return;
+          var overflowing = track.scrollWidth > track.clientWidth + 2;
+          outer.classList.toggle('csx-has-overflow', overflowing);
+        });
+      }
+      checkOverflow();
+      window.addEventListener('resize', function () {
+        clearTimeout(window.__csxResizeT);
+        window.__csxResizeT = setTimeout(checkOverflow, 150);
+      });
+    })();
+
+    // Sections gently fade + rise into view as the reader scrolls to them.
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var steps = Array.prototype.slice.call(document.querySelectorAll('#pg-cs-maamaka .cs-step'));
+      steps.forEach(function (el) { el.classList.add('csx-reveal-pre'); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('csx-reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      steps.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

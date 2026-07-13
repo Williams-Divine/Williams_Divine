@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-K0YDNBXJVL');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>RAS Case Study — Williams Divine</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%237B5EA7'/%3E%3Ctext x='32' y='45' font-family='Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='white' font-weight='900'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Page-scoped styles. Every custom class is prefixed "ras-" so nothing here
+       can collide with the global stylesheet. -->
+  <style>
+    /* Hard safety net: nothing on this page — carousel, table, image, or anything
+       added later — is ever allowed to stretch the page wider than the viewport. */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    #pg-cs-RAS { max-width: 100vw; overflow-x: hidden; }
+
+    #pg-cs-RAS {
+      --rasSafe: #22c55e;
+      --rasCaution: #f59e0b;
+      --rasDanger: #ef4444;
+      --rasSos: #dc2626;
+      --rasSafeBg: rgba(34,197,94,0.09);
+      --rasCautionBg: rgba(245,158,11,0.10);
+      --rasDangerBg: rgba(239,68,68,0.08);
+    }
+
+    /* ---------- UI polish: hero accent blobs ---------- */
+    #pg-cs-RAS .cs-page { position: relative; overflow: hidden; }
+    #pg-cs-RAS .ras-blob { position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; z-index: 0; }
+    #pg-cs-RAS .ras-blob-a { width: 320px; height: 320px; background: var(--acc); opacity: 0.16; top: -140px; right: -60px; }
+    #pg-cs-RAS .ras-blob-b { width: 240px; height: 240px; background: var(--rasSos); opacity: 0.10; top: 160px; left: -90px; }
+    #pg-cs-RAS .cs-page > *:not(.ras-blob) { position: relative; z-index: 1; }
+
+    /* ---------- UI polish: icon badges ---------- */
+    #pg-cs-RAS .step-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 13px; flex-shrink: 0;
+      background: rgba(123,94,167,0.12); font-size: 1.25rem;
+    }
+
+    /* ---------- UI polish: decorative pull-quote mark ---------- */
+    #pg-cs-RAS .pa-quote { position: relative; padding-left: 32px; }
+    #pg-cs-RAS .pa-quote::before {
+      content: '\201C'; position: absolute; left: 0; top: -12px; font-size: 2.6rem; line-height: 1;
+      color: var(--acc); opacity: 0.35; font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    /* ---------- UI polish: button + nav hover lift ---------- */
+    #pg-cs-RAS .btn, #pg-cs-RAS .cs-nav-btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #pg-cs-RAS .btn:hover:not([style*="cursor:not-allowed"]), #pg-cs-RAS .cs-nav-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    /* ---------- UI polish: scroll-reveal ---------- */
+    #pg-cs-RAS .ras-reveal-pre { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    #pg-cs-RAS .ras-reveal-in { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Breathing room between sections ---------- */
+    #pg-cs-RAS .cs-step { padding: 68px 0 !important; }
+    #pg-cs-RAS .cs-step-inner > p { margin-bottom: 16px; }
+    #pg-cs-RAS .ras-lede { font-size: 1.05rem; line-height: 1.75; color: var(--text); }
+
+    /* Grid/card-heavy sections get more room to breathe instead of feeling squeezed */
+    #pg-cs-RAS .ras-wide { max-width: 1180px !important; padding-left: 28px; padding-right: 28px; box-sizing: border-box; }
+    @media (max-width: 900px) {
+      #pg-cs-RAS .ras-wide { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 560px) {
+      #pg-cs-RAS .cs-step-inner { padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
+      #pg-cs-RAS .ras-wide { padding-left: 16px; padding-right: 16px; }
+    }
+
+    #pg-cs-RAS .ras-tag-testing {
+      background: rgba(239,68,68,0.10) !important;
+      color: var(--rasSos) !important;
+      border: 1px solid rgba(239,68,68,0.25) !important;
+    }
+
+    /* ---------- Footstep trail ---------- */
+    #pg-cs-RAS .ras-trail-wrap {
+      max-width: 1000px;
+      margin: 10px auto 0;
+      padding: 0 20px;
+    }
+    #pg-cs-RAS .ras-trail {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 6px 4px 16px;
+      gap: 0;
+    }
+    #pg-cs-RAS .ras-trail::-webkit-scrollbar { display: none; }
+    #pg-cs-RAS .ras-trail-node {
+      flex: 1 1 0;
+      min-width: 92px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      padding: 0;
+    }
+    #pg-cs-RAS .ras-trail-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: 55%;
+      width: 90%;
+      border-top: 2px dashed var(--bdr);
+      z-index: 0;
+    }
+    #pg-cs-RAS .ras-trail-step {
+      font-size: 0.95rem;
+      line-height: 26px;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      filter: grayscale(1) opacity(0.55);
+      transform: rotate(-14deg);
+    }
+    #pg-cs-RAS .ras-trail-node:nth-child(even) .ras-trail-step { transform: rotate(14deg); }
+    #pg-cs-RAS .ras-trail-label {
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: var(--mut);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.25s ease;
+    }
+    #pg-cs-RAS .ras-trail-node.ras-active .ras-trail-step {
+      filter: none;
+      transform: rotate(0deg) scale(1.25);
+    }
+    #pg-cs-RAS .ras-trail-node.ras-active .ras-trail-label { color: var(--acc); }
+
+    /* ---------- Assumption cards (now interactive <details>) ---------- */
+    #pg-cs-RAS .ras-assum-card {
+      background: var(--card-bg);
+      border: 1px solid var(--bdr);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+    #pg-cs-RAS .ras-assum-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      background: rgba(148,148,148,0.15);
+      color: var(--mut);
+    }
+    #pg-cs-RAS .ras-assum-statement {
+      font-size: 1.15rem;
+      font-weight: 600;
+      font-style: italic;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    #pg-cs-RAS .ras-assum-peek {
+      font-size: 0.88rem;
+      color: var(--mut);
+      background: rgba(123,94,167,0.06);
+      border-left: 3px solid var(--acc);
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin: 0 0 4px;
+      line-height: 1.55;
+    }
+    #pg-cs-RAS .ras-assum-summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--acc);
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    #pg-cs-RAS .ras-assum-summary::-webkit-details-marker { display: none; }
+    #pg-cs-RAS .ras-assum-summary::before {
+      content: '+';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: rgba(123,94,167,0.15);
+      color: var(--acc);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    #pg-cs-RAS details[open] .ras-assum-summary::before { content: '−'; }
+    #pg-cs-RAS .ras-assum-reveal { color: var(--mut); line-height: 1.7; margin-top: 14px; }
+    #pg-cs-RAS .ras-assum-reveal p { margin: 0 0 12px; }
+    #pg-cs-RAS .ras-assum-shaped {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--bdr);
+      font-size: 0.9rem;
+      color: var(--mut);
+    }
+    #pg-cs-RAS .ras-assum-shaped b { color: var(--text); }
+    #pg-cs-RAS .ras-fig {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      margin: 18px auto;
+      border-radius: 10px;
+      border: 1px solid var(--bdr);
+    }
+    #pg-cs-RAS .ras-fig.ras-fig-wide { max-width: 700px; }
+    #pg-cs-RAS .ras-fig.ras-fig-xwide { max-width: 900px; }
+
+    /* ---------- Stat strip ---------- */
+    #pg-cs-RAS .ras-stat-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 30px 0; }
+    #pg-cs-RAS .ras-stat-chip {
+      background: var(--card-bg); border: 1px solid var(--bdr); border-radius: 14px;
+      padding: 16px 22px; text-align: center; min-width: 130px; flex: 0 1 150px;
+      transition: transform 0.2s ease;
+    }
+    #pg-cs-RAS .ras-stat-chip:hover { transform: translateY(-3px); }
+    #pg-cs-RAS .ras-stat-chip .ras-n { font-size: 1.6rem; font-weight: 800; color: var(--acc); }
+    #pg-cs-RAS .ras-stat-chip .ras-l { font-size: 0.78rem; color: var(--mut); margin-top: 2px; }
+
+    /* ---------- Generic wrap-row ---------- */
+    #pg-cs-RAS .ras-wrap-row { display: flex !important; flex-flow: row wrap !important; gap: 16px; margin-top: 20px; align-items: stretch; }
+    #pg-cs-RAS .ras-wrap-row > * { flex: 1 1 260px; max-width: 100%; box-sizing: border-box; }
+    @media (min-width: 640px) { #pg-cs-RAS .ras-wrap-row > * { max-width: calc(50% - 8px); } }
+    @media (min-width: 980px) {
+      #pg-cs-RAS .ras-wrap-row.ras-cols-3 > * { max-width: calc(33.333% - 11px); }
+      #pg-cs-RAS .ras-wrap-row.ras-cols-4 > * { max-width: calc(25% - 12px); }
+    }
+
+    #pg-cs-RAS .ras-theme-card {
+      background: var(--card-bg); border: 1px solid var(--bdr); border-left: 4px solid var(--acc);
+      border-radius: 10px; padding: 16px 18px; transition: transform 0.2s ease;
+    }
+    #pg-cs-RAS .ras-theme-card:hover { transform: translateY(-3px); }
+    #pg-cs-RAS .ras-theme-card h5 { margin: 0 0 6px; font-size: 0.95rem; }
+    #pg-cs-RAS .ras-theme-card p { margin: 0; font-size: 0.85rem; color: var(--mut); line-height: 1.55; }
+
+    /* ---------- Colour system strip ---------- */
+    #pg-cs-RAS .ras-colour-strip { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin: 26px 0 10px; }
+    #pg-cs-RAS .ras-colour-swatch {
+      display: flex; align-items: center; gap: 10px; background: var(--card-bg);
+      border: 1px solid var(--bdr); border-radius: 30px; padding: 10px 18px 10px 12px; font-size: 0.85rem;
+    }
+    #pg-cs-RAS .ras-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+    #pg-cs-RAS .ras-dot-safe { background: var(--rasSafe); }
+    #pg-cs-RAS .ras-dot-caution { background: var(--rasCaution); }
+    #pg-cs-RAS .ras-dot-danger { background: var(--rasDanger); }
+    #pg-cs-RAS .ras-dot-sos { background: var(--rasSos); box-shadow: 0 0 0 3px rgba(220,38,38,0.15); }
+
+    /* ---------- Feature groups ---------- */
+    #pg-cs-RAS .ras-feat-group { margin-bottom: 32px; }
+    #pg-cs-RAS .ras-feat-group h5 { font-size: 1rem; margin-bottom: 4px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    #pg-cs-RAS .ras-feat-card {
+      background: var(--card-bg); border: 1px solid var(--bdr); border-radius: 12px;
+      padding: 16px 18px; position: relative; min-height: 92px; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #pg-cs-RAS .ras-feat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    #pg-cs-RAS .ras-feat-card h6 { margin: 0 40px 6px 0; font-size: 0.92rem; }
+    #pg-cs-RAS .ras-feat-card p { margin: 0; font-size: 0.82rem; color: var(--mut); line-height: 1.5; }
+    #pg-cs-RAS .ras-badge {
+      position: absolute; top: 14px; right: 14px; font-size: 0.62rem; font-weight: 800;
+      letter-spacing: 0.05em; padding: 3px 8px; border-radius: 20px; white-space: nowrap;
+    }
+    #pg-cs-RAS .ras-badge-must { background: rgba(123,94,167,0.15); color: var(--acc); }
+    #pg-cs-RAS .ras-badge-should { background: var(--rasCautionBg); color: var(--rasCaution); }
+    #pg-cs-RAS .ras-badge-could { background: rgba(148,148,148,0.15); color: var(--mut); }
+
+    /* ---------- Accessibility modes ---------- */
+    #pg-cs-RAS .ras-mode-card {
+      background: var(--card-bg); border: 1px solid var(--bdr); border-radius: 12px;
+      padding: 16px; text-align: center; transition: transform 0.2s ease;
+    }
+    #pg-cs-RAS .ras-mode-card:hover { transform: translateY(-3px); }
+    #pg-cs-RAS .ras-mode-card .ras-ico { font-size: 1.6rem; margin-bottom: 8px; }
+    #pg-cs-RAS .ras-mode-card h6 { margin: 0 0 4px; font-size: 0.88rem; }
+    #pg-cs-RAS .ras-mode-card p { margin: 0; font-size: 0.78rem; color: var(--mut); }
+
+    /* ---------- Horizontal peek carousel (used for sketches + core screens) ----------
+       overflow-x is ALWAYS "auto" — never "visible" — so the browser always properly
+       contains the phones inside this box; nothing can ever spill out and stretch the
+       page. When everything fits, auto shows no scrollbar and looks identical to a
+       static row. Only when JS measures real overflow does it switch to left-aligned
+       (so it opens on slide 1, not a centred middle slide) with the fade mask + hint. */
+    #pg-cs-RAS .ras-carousel-outer { position: relative; margin: 26px 0 6px; max-width: 100%; }
+    #pg-cs-RAS .ras-carousel {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: auto;
+      gap: 32px;
+      padding: 12px 4px 22px;
+      max-width: 100%;
+    }
+    #pg-cs-RAS .ras-carousel::-webkit-scrollbar { height: 6px; }
+    #pg-cs-RAS .ras-carousel::-webkit-scrollbar-thumb { background: var(--bdr); border-radius: 10px; }
+    #pg-cs-RAS .ras-carousel-outer.ras-has-overflow .ras-carousel {
+      justify-content: flex-start;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 56px;
+      -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
+    #pg-cs-RAS .ras-phone-col { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; scroll-snap-align: start; width: 216px; }
+    #pg-cs-RAS .ras-carousel-hint {
+      text-align: center; font-size: 0.78rem; color: var(--mut); margin-top: -4px;
+      display: none; align-items: center; justify-content: center; gap: 6px;
+    }
+    #pg-cs-RAS .ras-carousel-outer.ras-has-overflow .ras-carousel-hint { display: flex; }
+    #pg-cs-RAS .ras-carousel-hint .ras-arrow { display: inline-block; animation: ras-nudge 1.6s ease-in-out infinite; }
+    @keyframes ras-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+
+    #pg-cs-RAS .ras-phone {
+      width: 216px; height: 432px; border-radius: 32px; background: #16171d; padding: 12px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.18); flex-shrink: 0;
+    }
+    #pg-cs-RAS .ras-phone-basic {
+      width: 176px; height: 350px; border-radius: 18px; background: #2b2b2b; padding: 14px 12px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.18); flex-shrink: 0; margin-top: 40px;
+    }
+    #pg-cs-RAS .ras-phone-screen {
+      width: 100%; height: 100%; border-radius: 22px; background: #fff; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; position: relative; overflow: hidden; font-family: 'DM Sans', sans-serif;
+    }
+    #pg-cs-RAS .ras-phone-cap { text-align: center; font-size: 0.8rem; color: var(--mut); margin-top: 14px; max-width: 216px; }
+    #pg-cs-RAS .ras-phone-cap b { color: var(--text); display: block; margin-bottom: 2px; }
+
+    /* Sketch fidelity (Concept Sketches) stays monochrome/wireframe */
+    #pg-cs-RAS .ras-sketch .ras-phone-screen { filter: grayscale(0.35); }
+
+    /* Screen: route safety */
+    #pg-cs-RAS .ras-scr-safety { background: linear-gradient(180deg, #fff 0%, var(--rasSafeBg) 100%); }
+    #pg-cs-RAS .ras-safety-badge {
+      background: var(--rasSafe); color: #fff; font-weight: 800; font-size: 1.7rem; width: 88px; height: 88px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+    }
+    #pg-cs-RAS .ras-safety-label { font-weight: 700; color: #14532d; font-size: 0.95rem; }
+    #pg-cs-RAS .ras-safety-sub { font-size: 0.72rem; color: #4b5563; margin-top: 4px; }
+
+    /* Screen: SOS */
+    #pg-cs-RAS .ras-scr-sos { background: #fff; }
+    #pg-cs-RAS .ras-sos-btn {
+      width: 130px; height: 130px; border-radius: 50%; background: var(--rasSos); color: #fff; font-weight: 800;
+      font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 10px rgba(220,38,38,0.12), 0 0 0 20px rgba(220,38,38,0.06);
+    }
+    #pg-cs-RAS .ras-sos-sub { font-size: 0.72rem; color: #6b7280; margin-top: 16px; text-align: center; padding: 0 20px; }
+
+    /* Screen: accessibility onboarding (sketch) */
+    #pg-cs-RAS .ras-scr-access { background: #fff; padding: 18px; }
+    #pg-cs-RAS .ras-access-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 12px; text-align: center; }
+    #pg-cs-RAS .ras-access-opt {
+      width: 100%; display: flex; align-items: center; gap: 8px; background: #f5f3fa; border: 1.5px solid #e4defa;
+      border-radius: 10px; padding: 9px 12px; margin-bottom: 8px; font-size: 0.72rem; color: #3a2a5c; box-sizing: border-box;
+    }
+    #pg-cs-RAS .ras-access-opt.ras-sel { border-color: var(--acc); background: rgba(123,94,167,0.1); font-weight: 700; }
+
+    /* Screen: anonymous icon report (core) */
+    #pg-cs-RAS .ras-scr-report { background: #fff; padding: 20px; }
+    #pg-cs-RAS .ras-report-title { font-weight: 700; font-size: 0.8rem; margin-bottom: 14px; text-align: center; }
+    #pg-cs-RAS .ras-report-icons { display: flex; gap: 10px; margin-bottom: 16px; }
+    #pg-cs-RAS .ras-report-icon {
+      flex: 1; background: #f5f3fa; border: 1.5px solid #e4defa; border-radius: 12px; padding: 10px 4px;
+      text-align: center; font-size: 1.3rem;
+    }
+    #pg-cs-RAS .ras-report-icon.ras-sel { border-color: var(--rasDanger); background: rgba(239,68,68,0.08); }
+    #pg-cs-RAS .ras-report-icon span { display: block; font-size: 0.58rem; margin-top: 4px; color: #4b5563; font-weight: 600; }
+    #pg-cs-RAS .ras-report-confirm {
+      background: var(--rasSafeBg); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px;
+      padding: 10px; text-align: center; font-size: 0.7rem; color: #14532d; font-weight: 700;
+    }
+
+    /* Screen: simple mode (core) */
+    #pg-cs-RAS .ras-scr-simple { background: #fff; padding: 18px; gap: 12px; }
+    #pg-cs-RAS .ras-simple-btn {
+      width: 100%; padding: 18px 10px; border-radius: 14px; text-align: center; font-weight: 800; font-size: 0.85rem;
+    }
+    #pg-cs-RAS .ras-simple-btn.safe { background: var(--rasSafeBg); color: #14532d; }
+    #pg-cs-RAS .ras-simple-btn.sos { background: var(--rasSos); color: #fff; }
+    #pg-cs-RAS .ras-simple-btn.report { background: rgba(123,94,167,0.12); color: var(--acc); }
+
+    /* Screen: 6-stage tracker (core) */
+    #pg-cs-RAS .ras-scr-tracker { background: #fff; padding: 20px; justify-content: flex-start !important; padding-top: 30px; }
+    #pg-cs-RAS .ras-track-item { display: flex; align-items: center; gap: 10px; width: 100%; margin-bottom: 14px; }
+    #pg-cs-RAS .ras-track-dot { width: 14px; height: 14px; border-radius: 50%; background: #e5e2f0; flex-shrink: 0; }
+    #pg-cs-RAS .ras-track-item.ras-done .ras-track-dot { background: var(--rasSafe); }
+    #pg-cs-RAS .ras-track-item.ras-now .ras-track-dot { background: var(--acc); box-shadow: 0 0 0 4px rgba(123,94,167,0.18); }
+    #pg-cs-RAS .ras-track-item span { font-size: 0.66rem; color: #6b7280; }
+    #pg-cs-RAS .ras-track-item.ras-now span, #pg-cs-RAS .ras-track-item.ras-done span { color: #1a1a1a; font-weight: 700; }
+
+    /* Screen: USSD (core, basic phone frame) */
+    #pg-cs-RAS .ras-scr-ussd {
+      background: #0c1a10; color: #4ade80; font-family: 'Courier New', monospace; font-size: 0.66rem;
+      align-items: flex-start !important; justify-content: flex-start !important; padding: 14px; line-height: 1.6;
+    }
+    #pg-cs-RAS .ras-scr-ussd .ras-ussd-hdr { color: #86efac; font-weight: 700; margin-bottom: 8px; }
+
+    /* ---------- MoSCoW columns ---------- */
+    #pg-cs-RAS .ras-moscow-col { border-radius: 12px; padding: 18px; border: 1px solid var(--bdr); background: var(--card-bg); }
+    #pg-cs-RAS .ras-moscow-col h6 { margin: 0 0 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    #pg-cs-RAS .ras-moscow-col ul { margin: 0; padding-left: 18px; font-size: 0.82rem; color: var(--mut); line-height: 1.7; }
+    #pg-cs-RAS .ras-moscow-col.ras-c-must { border-top: 4px solid var(--acc); }
+    #pg-cs-RAS .ras-moscow-col.ras-c-should { border-top: 4px solid var(--rasCaution); }
+    #pg-cs-RAS .ras-moscow-col.ras-c-could { border-top: 4px solid #9ca3af; }
+    #pg-cs-RAS .ras-moscow-col.ras-c-wont { border-top: 4px solid var(--rasDanger); }
+
+    /* ---------- Quote blocks ---------- */
+    #pg-cs-RAS .ras-ps-quote {
+      background: var(--card-bg); border-left: 4px solid var(--acc); border-radius: 8px; padding: 16px 20px;
+      margin-bottom: 14px; font-style: italic; color: var(--text); font-size: 0.95rem; line-height: 1.6;
+    }
+    #pg-cs-RAS .ras-hmw-quote {
+      background: var(--card-bg); border-left: 4px solid var(--rasCaution); border-radius: 8px; padding: 14px 18px;
+      margin-bottom: 12px; font-size: 0.92rem; line-height: 1.6;
+    }
+
+    /* ---------- Status note ---------- */
+    #pg-cs-RAS .ras-status-box { background: var(--rasDangerBg); border: 1px solid rgba(239,68,68,0.2); border-radius: 14px; padding: 24px 28px; text-align: center; }
+    #pg-cs-RAS .ras-status-dot {
+      display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--rasSos);
+      margin-right: 8px; animation: ras-pulse 1.8s infinite;
+    }
+    @keyframes ras-pulse { 0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); } 70% { box-shadow: 0 0 0 8px rgba(220,38,38,0); } 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); } }
+
+    #pg-cs-RAS .ras-table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #pg-cs-RAS table.ras-gap-table { width: 100%; min-width: 480px; border-collapse: collapse; margin-top: 18px; font-size: 0.85rem; }
+    #pg-cs-RAS table.ras-gap-table th, #pg-cs-RAS table.ras-gap-table td { border: 1px solid var(--bdr); padding: 10px 12px; text-align: left; vertical-align: top; }
+    #pg-cs-RAS table.ras-gap-table th { background: var(--card-bg); }
+    #pg-cs-RAS table.ras-gap-table td { color: var(--mut); }
+  </style>
+</head>
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+
+  <div class="mob" id="mob">
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Archive</a>
+    <button onclick="openCV()">CV &#x1F4C4;</button>
+    <button onclick="closeMob()" class="btn mob-cta"><a href="../index.html#contact">Say Hi &#x1F44B;</a></button>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><a href="../index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a></div>
+    <div class="nav-desk" id="navDesk">
+      <a id="nl-home" href="../index.html">Home</a>
+      <a id="nl-work" href="../work.html">Work</a>
+      <a id="nl-about" href="../about.html">About</a>
+      <a id="nl-about" href="../archive.html">Archive</a>
+      <button onclick="openCV()">CV &#x1F4C4;</button>
+      <button class="theme-btn" id="themeBtn">&#x1F319;</button>
+      <a class="btn nav-cta" href="../index.html#contact">Say Hi &#x1F44B;</a>
+    </div>
+    <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div id="pg-cs-RAS" class="page">
+    <div class="cs-page">
+      <div class="ras-blob ras-blob-a" aria-hidden="true"></div>
+      <div class="ras-blob ras-blob-b" aria-hidden="true"></div>
+      <button class="cs-back" onclick="window.location='../work.html'">&larr; Back to Work</button>
+      <div class="cs-meta">
+        <span class="tag tp">Mobile App</span>
+        <span class="tag tp">Public Safety Tech</span>
+        <span class="tag tp">Accessibility &amp; Inclusive Design</span>
+        <span class="tag ras-tag-testing">In Testing</span>
+      </div>
+      <h1 class="cs-title">RAS <span class="em">Rapid Alert System &#x1F6A8;</span></h1>
+      <p class="cs-sub">A mobile-first public safety platform for Nigerians living with everyday insecurity — built around low-bandwidth alerts, anonymous community reporting, and an accessibility system designed in from day one, not bolted on after.</p>
+
+      <div class="cs-top-links">
+        <a href="javascript:void(0)" class="btn btn-dark" style="opacity:0.5;cursor:not-allowed">Prototype in testing — not yet public</a>
+      </div>
+
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cssn">Ongoing</div><div class="cssl">Duration</div></div>
+        <div class="cs-stat"><div class="cssn">Sole</div><div class="cssl">UX Researcher &amp; Designer</div></div>
+        <div class="cs-stat"><div class="cssn">App · USSD · SMS</div><div class="cssl">Platform</div></div>
+        <div class="cs-stat"><div class="cssn">In Testing</div><div class="cssl">Status</div></div>
+      </div>
+    </div>
+
+    <!-- Footstep trail — tracks where the reader is in the process -->
+    <div class="ras-trail-wrap">
+      <nav class="ras-trail" id="rasTrail" aria-label="Design process progress">
+        <button class="ras-trail-node" data-target="ras-sec-discover"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Discover</span></button>
+        <button class="ras-trail-node" data-target="ras-sec-define"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Define</span></button>
+        <button class="ras-trail-node" data-target="ras-sec-ideate"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Ideate</span></button>
+        <button class="ras-trail-node" data-target="ras-sec-prioritize"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Prioritise</span></button>
+        <button class="ras-trail-node" data-target="ras-sec-prototype"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Prototype</span></button>
+        <button class="ras-trail-node" data-target="ras-sec-reflect"><span class="ras-trail-step">&#x1F463;</span><span class="ras-trail-label">Reflect</span></button>
+      </nav>
+    </div>
+
+    <!-- Overview -->
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F50D;</span><h2>Overview</h2></div>
+        <p class="ras-lede">Picture this: a security threat is unfolding somewhere in Niger, Katsina, Zamfara, Kaduna, Plateau, or Benue State. You're an ordinary citizen — maybe with an unreliable Android phone, maybe with no smartphone at all. How do you get warned in time? And how do you ask for help without becoming a suspect for asking?</p>
+        <p>That question is what RAS was built to answer. Stick with me through this case study and you'll see the full design thinking process behind it: 79 pieces of secondary research, an affinity map, two personas, journey maps, problem statements, a competitor teardown, and a prioritised, sketch-ready feature set — including two assumptions I got wrong before the research corrected them.</p>
+      </div>
+    </div>
+
+    <div id="ras-sec-discover">
+    <!-- Assumptions -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4AD;</span><h2>Where I Started vs. What the Research Found</h2></div>
+        <p class="ras-lede" style="color:var(--mut); margin-bottom:24px;">Before any research, I was carrying two assumptions about the people RAS would serve. Go on, click into each one below — I got both of them wrong, and the correction shaped the product more than the original assumption ever could have.</p>
+
+        <details class="ras-assum-card">
+          <div class="ras-assum-eyebrow">Assumption</div>
+          <p class="ras-assum-statement">"People in high-risk areas simply don't have anyone to call."</p>
+          <p class="ras-assum-peek">&#x1F440; Sneak peek: it's not that people had no number to call — a HumAngle survey found 92.1% had never even tried it.</p>
+          <summary class="ras-assum-summary">See what the research found</summary>
+          <div class="ras-assum-reveal">
+            <p>Nigeria's 112 emergency line already exists on paper. But in a HumAngle investigative survey of 165 respondents, 92.1% said they had never used it — even as a preventive habit, before anything had gone wrong.</p>
+            <img class="ras-fig" src="images/RAS_112_usage_gap.png" alt="Chart: 92.1% of surveyed Nigerians have never used the 112 emergency line" />
+            <p>The problem wasn't the absence of a number — it was that the number nobody fully trusted or expected to answer in time. Even when people did call police, response was often slow to mobilise, or didn't come at all. So instead of just "give people a hotline," RAS extends the power to raise and receive an alert to <b>emergency contacts and community/vigilante structures</b> — the people who are already closest and fastest — while still routing into the formal system in parallel.</p>
+          </div>
+          <div class="ras-assum-shaped"><b>This shaped:</b> One-Tap SOS with community routing, Emergency Contacts Management, and a layered community + authority verification system.</div>
+        </details>
+
+        <details class="ras-assum-card">
+          <div class="ras-assum-eyebrow">Assumption</div>
+          <p class="ras-assum-statement">"Disabled users could largely be served by the same alert and reporting flows as everyone else — with a little help from family to bridge the gaps."</p>
+          <p class="ras-assum-peek">&#x1F440; Sneak peek: Nigeria can't even agree on how many disabled citizens it has — estimates swing from 3.25M to 35.5M.</p>
+          <summary class="ras-assum-summary">See what the research found</summary>
+          <div class="ras-assum-reveal">
+            <p>Nigeria doesn't even agree on how many disabled citizens it has — estimates range from 3.25 million to 35.5 million, a tell that this population is undercounted at every level, not just underserved by any single system.</p>
+            <img class="ras-fig" src="images/RAS_disability_estimates.png" alt="Chart: six different national estimates of Nigeria's disabled population, ranging from 2.3% to 15%" />
+            <p>Concretely: a deaf woman in one documented case visited three separate police stations to report violence and was turned away from all three — no interpreter, no statement taken. In Niger State, RAS's core geography, 71% of persons with disabilities can't access basic medical care under normal circumstances. Accessibility couldn't be layered on top of Musa's flows later — it had to be a first-class requirement from day one. That's why Hauwa, representing disabled users, carries equal research depth and an equal number of MUST-have features to Musa throughout this project.</p>
+          </div>
+          <div class="ras-assum-shaped"><b>This shaped:</b> Accessibility Profile Setup at onboarding, an Adaptive Interface Engine, Auto Accessibility Flag on every SOS, and Simple Mode for cognitive/low-literacy users.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Research Snapshot -->
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4DA;</span><h2>Empathise &amp; Discover — Research Snapshot</h2></div>
+        <p class="ras-lede">Before I drew a single persona, I ran secondary research across four sheets — General Citizens (Preventive + Active actions) and Disabled Users (Preventive + Active actions) — pulling from news reporting, official travel advisories, NGO/policy briefs, and academic research.</p>
+
+        <div class="ras-stat-row">
+          <div class="ras-stat-chip"><div class="ras-n">79</div><div class="ras-l">research entries across 4 sheets</div></div>
+          <div class="ras-stat-chip"><div class="ras-n">92.1%</div><div class="ras-l">never used the 112 hotline</div></div>
+          <div class="ras-stat-chip"><div class="ras-n">6</div><div class="ras-l">high-insecurity states covered</div></div>
+          <div class="ras-stat-chip"><div class="ras-n">12</div><div class="ras-l">competitor platforms reviewed</div></div>
+        </div>
+
+        <img class="ras-fig ras-fig-wide" src="images/RAS_bandit_deaths_trend.png" alt="Chart: recorded rural banditry-related deaths in Nigeria rose 63% between 2023 and 2024" />
+
+        <p style="margin-top:18px;">Here's the finding that shaped everything about how I approached Hauwa: the Disabled Users sheets came back a fraction of the size of the General Citizens sheets, with some questions returning close to 100% research gaps. That's not because disabled Nigerians experience less insecurity — they live in the same villages, travel the same roads. It's that their experiences get filtered out of the public record at almost every step. So I treated the silence itself as a finding, not an absence of one.</p>
+      </div>
+    </div>
+
+    <!-- Affinity Map -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x1F5C2;&#xFE0F;</span><h2>Affinity Map — Six Recurring Themes</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">Every finding from the four research sheets got clustered into six themes. These went on to inform every persona, journey map, and problem statement that follows — so it's worth a minute of your time.</p>
+        <img class="ras-fig ras-fig-xwide" src="images/RAS_affinity_map.png" alt="Affinity map clustering research findings into six themes" />
+        <div class="ras-wrap-row ras-cols-3">
+          <div class="ras-theme-card"><h5>1. Informal networks are the de facto system</h5><p>Vigilante groups, clergy, and WhatsApp rider networks move faster and are trusted more than official channels — but are unverified and can be overwhelmed.</p></div>
+          <div class="ras-theme-card"><h5>2. Formal channels are underused &amp; distrusted</h5><p>112 exists on paper but is barely used. Citizens fear becoming suspects, not just being ignored.</p></div>
+          <div class="ras-theme-card"><h5>3. Information is abundant but unverified</h5><p>WhatsApp/Facebook dominate, but hoaxes look just as credible as real alerts.</p></div>
+          <div class="ras-theme-card"><h5>4. Movement is dictated by external forces</h5><p>Curfews and bandit-imposed restrictions shape travel — usually without citizen input or notice.</p></div>
+          <div class="ras-theme-card"><h5>5. Accessibility is a systemic blind spot</h5><p>Every layer of the safety ecosystem — alerts, hotlines, police stations — was designed without disabled users in mind.</p></div>
+          <div class="ras-theme-card"><h5>6. Emergency communication is improvised, not designed</h5><p>No standard protocol exists — people covertly share location, shout warnings, or use interrupted calls.</p></div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-discover -->
+
+    <div id="ras-sec-define">
+    <!-- Personas -->
+    <div class="cs-step">
+      <div class="cs-step-inner" style="max-width:1500px; margin:0 auto; padding:0 2%;">
+        <div class="step-label"><span class="step-icon">&#x1F464;</span><h2>Define — User Personas</h2></div>
+        <p class="ras-lede" style="color:var(--mut); max-width:900px;">Meet the two people every decision in this case study was made for.</p>
+        <div class="persona-parent">
+
+          <div class="persona-card">
+            <div class="persona-vis">
+              <img src="images/RAS_persona_musa.png" alt="Musa Abdullahi persona avatar" style="width:140px;height:140px;border-radius:50%;object-fit:cover;" />
+              <div class="pa-name">Musa Abdullahi</div>
+              <div class="pa-role">Age 34 &bull; Petty trader &amp; okada rider, Shiroro LGA, Niger State</div>
+            </div>
+            <div class="persona-body">
+              <h4>Persona 1: The General Citizen</h4>
+              <p>Travels a bandit-affected road twice a week because market day is his livelihood. Owns a basic Android with unreliable data, relies on WhatsApp and word-of-mouth, has never used 112.</p>
+              <blockquote class="pa-quote">"I don't need soldiers to follow me to the market. I just need to know — before I leave my house — whether today is a day to travel, or a day to stay home."</blockquote>
+              <div class="pa-details">
+                <div class="pd-item"><div class="pd-label">Goal</div><div class="pd-val">Know before setting out whether his route is currently safe, and get a warning fast enough to change plans.</div></div>
+                <div class="pd-item"><div class="pd-label">Frustration</div><div class="pd-val">Information is unverified and contradictory; reporting to police risks making him a suspect or a target.</div></div>
+                <div class="pd-item"><div class="pd-label">Need</div><div class="pd-val">A quiet, low-bandwidth way to signal danger, and a route status he can trust without spending money he doesn't have.</div></div>
+                <div class="pd-item"><div class="pd-label">Context</div><div class="pd-val">Income-dependent traveller; represents the majority of RAS's potential users.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <div class="persona-vis">
+              <img src="images/RAS_persona_hauwa.png" alt="Hauwa Yakubu persona avatar" style="width:140px;height:140px;border-radius:50%;object-fit:cover;" />
+              <div class="pa-name">Hauwa Yakubu</div>
+              <div class="pa-role">Age 41 &bull; Deaf tailor, Kontagora, Niger State</div>
+            </div>
+            <div class="persona-body">
+              <h4>Persona 2: The User With a Disability</h4>
+              <p>Communicates through sign language and gesture, shares a basic "candle" phone with her household, and has never been part of a formal disability association. Represents users for whom even imperfect existing channels aren't reliably accessible.</p>
+              <blockquote class="pa-quote">"Everyone is told to listen for the warning. Nobody has ever asked me — what should I be looking for instead?"</blockquote>
+              <div class="pa-details">
+                <div class="pd-item"><div class="pd-label">Goal</div><div class="pd-val">Receive danger warnings in a form she can perceive — visual, written, or vibration — and alert someone without needing speech.</div></div>
+                <div class="pd-item"><div class="pd-label">Frustration</div><div class="pd-val">By the time a neighbour signs what happened, the moment has often already passed; no system has ever been built with her in mind.</div></div>
+                <div class="pd-item"><div class="pd-label">Need</div><div class="pd-val">To be understood the first time she reports something, without bringing a family member to interpret.</div></div>
+                <div class="pd-item"><div class="pd-label">Context</div><div class="pd-val">Represents the accessibility gap surfaced across every layer of the research.</div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Journey highlights -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F6E4;&#xFE0F;</span><h2>Journey Maps — Where It Breaks Down</h2></div>
+        <p class="ras-lede" style="color:var(--mut); margin-bottom:10px;">Mapping both personas from pre-departure through aftermath surfaced the exact moments where the current system fails them.</p>
+        <ul class="plist">
+          <div class="pain-list">
+            <p style="margin-bottom:0px; font-weight: bold;">MUSA — GENERAL CITIZEN</p>
+            <li class="pitem"><span class="pn">01</span><span>No single trusted source before departure — just WhatsApp, word-of-mouth, and gut feeling</span></li>
+            <li class="pitem"><span class="pn">02</span><span>No live update once already on the road if a threat emerges ahead</span></li>
+            <li class="pitem"><span class="pn">03</span><span>No trusted, fast way to alert anyone during an active incident — calling police risks becoming a suspect</span></li>
+            <li class="pitem"><span class="pn">04</span><span>Little evidence that reporting ever leads to visible change, so the incentive to report is low</span></li>
+          </div>
+          <div class="pain-list">
+            <p style="margin-bottom:0px; font-weight: bold;">HAUWA — USER WITH A DISABILITY</p>
+            <li class="pitem"><span class="pn">05</span><span>Every alert channel — sirens, shouted warnings, radio — assumes she can hear it</span></li>
+            <li class="pitem"><span class="pn">06</span><span>She learns what's happening secondhand, via a neighbour's gestures, often after the fact</span></li>
+            <li class="pitem"><span class="pn">07</span><span>No accessible channel exists to report an incident without a family member interpreting</span></li>
+            <li class="pitem"><span class="pn">08</span><span>She isn't registered on any "vulnerable persons" list, and doesn't know if one would even help her</span></li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Problem Statements + HMW -->
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F3AF;</span><h2>Problem Statements &amp; How Might We</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">Three problem statements, distilled from the research and journey maps above, framed every idea that came after.</p>
+        <div class="ras-ps-quote">Musa and Hauwa need a way to report security incidents without revealing their identities to unauthorised individuals, because fear of retaliation or being labelled an informant discourages people from reporting threats through formal channels.</div>
+        <div class="ras-ps-quote">Musa and Hauwa need a way to access emergency support using the devices they already own — including low-end smartphones and button phones — because a safety solution that depends on expensive technology risks excluding the very people most affected by insecurity.</div>
+        <div class="ras-ps-quote">Musa and Hauwa need a way to receive updates after submitting a report, because people rarely know whether their alerts were received, acted upon, or resolved — leading to distrust in formal reporting systems.</div>
+
+        <p style="margin-top:22px; color:var(--mut);">And a sample of the How Might We questions these reframed into:</p>
+        <div class="ras-hmw-quote">How might we enable Musa to send a quiet, low-bandwidth distress signal during an active threat, so help can be alerted even when a voice call isn't possible or safe?</div>
+        <div class="ras-hmw-quote">How might we enable Hauwa to receive security alerts through a visual or vibration-based channel, so she has access to the same life-saving information at the same time as her hearing neighbours?</div>
+        <div class="ras-hmw-quote">How might we ensure Musa and Hauwa can use their low-end devices, including button phones, so they aren't excluded by their hardware?</div>
+        <div class="ras-hmw-quote">How might we keep Musa and Hauwa informed about what happens after they report an incident, so they trust that their actions make a difference?</div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-define -->
+
+    <div id="ras-sec-ideate">
+    <!-- Competitor Analysis -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x1F9E9;</span><h2>Competitor Analysis</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">I reviewed 12 platforms — from Nigeria's own 112 to Noonlight, RapidSOS, Safetipin, SACHET, and CodeRED. Not one combined all of RAS's key differentiators; most trade off one for another.</p>
+        <div class="ras-table-wrap">
+        <table class="ras-gap-table">
+          <tr><th>Common competitor weakness</th><th>RAS's response</th></tr>
+          <tr><td>Smartphone-only dependence (Noonlight, Safetipin, RapidSOS, Life360)</td><td>USSD + SMS + a lightweight, offline-first app</td></tr>
+          <tr><td>No anonymity for reporters (Nigeria 112, RapidSOS, PulsePoint)</td><td>Anonymous-by-default reporting with a verified backend</td></tr>
+          <tr><td>No disability accessibility (Nigeria 112, Safetipin, RapidSOS, Usalama)</td><td>Seven adaptive interface modes driven by an accessibility profile</td></tr>
+          <tr><td>One-way communication only (SACHET, CodeRED)</td><td>Bidirectional: report, track status, and receive resolution updates</td></tr>
+          <tr><td>No post-report feedback (Nigeria 112, SACHET)</td><td>6-stage status tracker plus community impact notifications</td></tr>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual language / colour system -->
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F3A8;</span><h2>A Light Touch of Visual Language</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">RAS runs on a simple three-colour threat scale for route status and alerts, plus a distinct SOS red for the emergency flow — kept deliberately minimal, because colour is never the only signal. Every colour-coded element also carries an icon and a text label, so nothing depends on colour vision alone.</p>
+        <div class="ras-colour-strip">
+          <div class="ras-colour-swatch"><span class="ras-dot ras-dot-safe"></span>Safe to travel</div>
+          <div class="ras-colour-swatch"><span class="ras-dot ras-dot-caution"></span>Caution advised</div>
+          <div class="ras-colour-swatch"><span class="ras-dot ras-dot-danger"></span>Danger — avoid route</div>
+          <div class="ras-colour-swatch"><span class="ras-dot ras-dot-sos"></span>SOS active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x1F4A1;</span><h2>Ideate — Key Features</h2></div>
+        <p class="ras-lede" style="color:var(--mut); margin-bottom:24px;">40 features came out of ideation, prioritised through MoSCoW, then sequenced on an impact/effort 2×2. Here's the MVP (MUST) set, grouped by what problem each one solves:</p>
+
+        <div class="ras-feat-group">
+          <h5>&#x1F6A6; Route Safety &amp; Travel Decisions</h5>
+          <div class="ras-wrap-row ras-cols-3">
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Threat Heat Map</h6><p>A basic, colour-coded route status view — the core answer to Musa's primary need.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Travel Advisement</h6><p>A binary travel / delay recommendation requiring zero data literacy.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-should">SHOULD</span><h6>Route Safety Score (0–100)</h6><p>Quantifies risk beyond a simple binary for better-informed decisions.</p></div>
+          </div>
+        </div>
+
+        <div class="ras-feat-group">
+          <h5>&#x1F198; Emergency &amp; SOS</h5>
+          <div class="ras-wrap-row ras-cols-3">
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>One-Tap SOS</h6><p>The emergency core — routes to emergency contacts and community structures, not just a hotline.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>SMS / USSD SOS</h6><p>Connectivity is unreliable during incidents, so SMS fallback is required, not optional.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Emergency Contacts Management</h6><p>SOS is meaningless without a defined circle to alert — core infrastructure.</p></div>
+          </div>
+        </div>
+
+        <div class="ras-feat-group">
+          <h5>&#x1F58A;&#xFE0F; Reporting &amp; Trust</h5>
+          <div class="ras-wrap-row ras-cols-4">
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Icon-Based Incident Reporting</h6><p>Three taps, no text required — serves both community reporting and Hauwa's non-voice needs.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Anonymous Submission (Default)</h6><p>Anonymity is the default, not a toggle — without it, Musa won't report at all.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Verified Identity Backend</h6><p>Anonymous to the street, accountable to the platform.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-should">SHOULD</span><h6>6-Stage Report Status Tracker</h6><p>Submitted → Received → Under Review → Community Confirmed → Authority Verified → Resolved.</p></div>
+          </div>
+        </div>
+
+        <div class="ras-feat-group">
+          <h5>&#x267F; Accessibility</h5>
+          <div class="ras-wrap-row ras-cols-3">
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Accessibility Profile Setup</h6><p>A first-use step that gates and adapts every other feature for Hauwa.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Visual Push Alert (Full-Screen)</h6><p>Large icon + colour + text override — Hauwa's minimum viable alert.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Vibration Pattern Alerts</h6><p>Works on any phone, needs no internet — the most robust channel available to her.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Pre-Written Emergency Messages</h6><p>"I am deaf — please communicate in writing." One tap, no speech or typing required.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Auto Accessibility Flag on SOS</h6><p>Every report auto-attaches how to communicate with this user — responders see it before arrival.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>Simple Mode (3-Button Interface)</h6><p>Check Safety / SOS / Report. No menu, no map, no text — for cognitive and low-literacy users.</p></div>
+          </div>
+        </div>
+
+        <div class="ras-feat-group">
+          <h5>&#x1F4F1; Low-End Device Access</h5>
+          <div class="ras-wrap-row ras-cols-3">
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>USSD Interface (*RAS#)</h6><p>Works on any phone, no internet — without it, Hauwa's household is excluded entirely.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-must">MUST</span><h6>SMS Alert Delivery</h6><p>Backward-compatible with any phone since 2000; the only channel that reliably reaches Hauwa's device.</p></div>
+            <div class="ras-feat-card"><span class="ras-badge ras-badge-should">SHOULD</span><h6>Lightweight Android App (&lt;20MB)</h6><p>Offline-first core, installs on 1GB RAM devices, low-res map tiles.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accessibility modes -->
+    <div class="cs-step">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x267F;</span><h2>One Platform, Seven Interface Modes</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">Rather than building separate products, a single Accessibility Profile drives an adaptive interface — so the same app genuinely works for Deaf, Blind, Speech-Impaired, Mobility-Impaired, and Cognitive/low-literacy users, alongside the standard experience.</p>
+        <div class="ras-wrap-row ras-cols-4">
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F441;&#xFE0F;</div><h6>Deaf</h6><p>Visual-first alerts, text/icon reporting</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F9AF;</div><h6>Blind</h6><p>Voice-first mode, full audio labelling</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F5E3;&#xFE0F;</div><h6>Speech-Impaired</h6><p>Icon board, pre-written messages</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x267F;</div><h6>Mobility-Impaired</h6><p>Priority rescue flag, safe zone map</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F9E0;</div><h6>Cognitive / Low-Literacy</h6><p>Simple Mode — 3 giant buttons only</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F464;</div><h6>Standard</h6><p>Full-featured map, reporting &amp; tracking</p></div>
+          <div class="ras-mode-card"><div class="ras-ico">&#x1F91D;</div><h6>Caregiver-Linked</h6><p>Trusted contact can view or trigger SOS on the user's behalf</p></div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-ideate -->
+
+    <div id="ras-sec-prioritize">
+    <!-- Prioritisation -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x2705;</span><h2>MoSCoW Prioritisation</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">With under two weeks to the sketch phase, MoSCoW answered the honest question: what were we realistically able to build?</p>
+        <div class="ras-wrap-row ras-cols-4">
+          <div class="ras-moscow-col ras-c-must"><h6>Must</h6><ul>
+            <li>One-Tap SOS + SMS/USSD fallback</li>
+            <li>Icon-based, anonymous reporting</li>
+            <li>Accessibility profile + Simple Mode</li>
+            <li>USSD interface (*RAS#)</li>
+          </ul></div>
+          <div class="ras-moscow-col ras-c-should"><h6>Should</h6><ul>
+            <li>Route safety score</li>
+            <li>3-tier verification layers</li>
+            <li>6-stage report status tracker</li>
+            <li>Hausa language support</li>
+          </ul></div>
+          <div class="ras-moscow-col ras-c-could"><h6>Could</h6><ul>
+            <li>Silent SOS &amp; covert trigger</li>
+            <li>Journey watchdog</li>
+            <li>Voice-first mode</li>
+            <li>Safe zone finder</li>
+          </ul></div>
+          <div class="ras-moscow-col ras-c-wont"><h6>Won't (this phase)</h6><ul>
+            <li>Wearable integration</li>
+            <li>Photo evidence uploads</li>
+            <li>Full web platform</li>
+            <li>AI-powered risk analysis</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-prioritize -->
+
+    <div id="ras-sec-prototype">
+    <!-- Concept sketches -->
+    <div class="cs-step">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x270F;&#xFE0F;</span><h2>Early Concept Sketches</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">RAS is still in testing, so full screens aren't public yet — these are simplified concept sketches of three MUST-have moments, built to check the interaction logic before higher-fidelity design. Go ahead, scroll sideways — there's more than what fits on screen.</p>
+        <div class="ras-carousel-outer">
+          <div class="ras-carousel ras-sketch">
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-safety">
+                <div class="ras-safety-badge">78</div>
+                <div class="ras-safety-label">Safe to Travel</div>
+                <div class="ras-safety-sub">Shiroro–Kuta Road · updated 12m ago</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Route Safety</b>the check before Musa leaves the house</div>
+            </div>
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-sos">
+                <div class="ras-sos-btn">SOS</div>
+                <div class="ras-sos-sub">Hold for 3 seconds to alert your emergency contacts &amp; community responders</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>SOS Activation</b>one action, nothing else competing for attention</div>
+            </div>
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-access">
+                <div class="ras-access-title">Do you have any accessibility needs?</div>
+                <div class="ras-access-opt ras-sel">&#x2713; Deaf / Hard of hearing</div>
+                <div class="ras-access-opt">Blind / Low vision</div>
+                <div class="ras-access-opt">Speech impaired</div>
+                <div class="ras-access-opt">Mobility impaired</div>
+                <div class="ras-access-opt">None of the above</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Accessibility Onboarding</b>gates and adapts every screen after it</div>
+            </div>
+          </div>
+          <div class="ras-carousel-hint">scroll for more <span class="ras-arrow">&#x2192;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Screens -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner ras-wide">
+        <div class="step-label"><span class="step-icon">&#x1F4F2;</span><h2>Core Screens — How RAS Solves It</h2></div>
+        <p class="ras-lede" style="color:var(--mut);">Here's where the research actually turns into something you can point at. Six screens, six problems — illustrative renders of the core flows built for this case study (the live UI kit stays under wraps until testing wraps up). Scroll along and match each one back to the problem it's solving.</p>
+        <div class="ras-carousel-outer">
+          <div class="ras-carousel">
+
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-safety">
+                <div class="ras-safety-badge">78</div>
+                <div class="ras-safety-label">Safe to Travel</div>
+                <div class="ras-safety-sub">Shiroro–Kuta Road · updated 12m ago</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Route Safety Home</b>solves: knowing before you go, without calling anyone</div>
+            </div>
+
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-sos">
+                <div class="ras-sos-btn">SOS</div>
+                <div class="ras-sos-sub">Alerts emergency contacts &amp; nearby community responders instantly</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>SOS Activation</b>solves: getting real help faster than a hotline that might not answer</div>
+            </div>
+
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-report">
+                <div class="ras-report-title">What did you see?</div>
+                <div class="ras-report-icons">
+                  <div class="ras-report-icon ras-sel">&#x1F52B;<span>Gunshots</span></div>
+                  <div class="ras-report-icon">&#x1F6A8;<span>Kidnapping</span></div>
+                  <div class="ras-report-icon">&#x1F440;<span>Suspicious</span></div>
+                </div>
+                <div class="ras-report-confirm">&#x2713; Submitted anonymously</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Anonymous Icon Report</b>solves: reporting without fear of becoming a suspect</div>
+            </div>
+
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-simple">
+                <div class="ras-simple-btn safe">&#x2705; Check Safety</div>
+                <div class="ras-simple-btn sos">&#x1F6A8; SOS</div>
+                <div class="ras-simple-btn report">&#x1F58A;&#xFE0F; Report</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Simple Mode</b>solves: one adaptive app that genuinely works for Hauwa too</div>
+            </div>
+
+            <div class="ras-phone-col">
+              <div class="ras-phone"><div class="ras-phone-screen ras-scr-tracker">
+                <div class="ras-track-item ras-done"><span class="ras-track-dot"></span><span>Submitted</span></div>
+                <div class="ras-track-item ras-done"><span class="ras-track-dot"></span><span>Received</span></div>
+                <div class="ras-track-item ras-now"><span class="ras-track-dot"></span><span>Community Confirmed</span></div>
+                <div class="ras-track-item"><span class="ras-track-dot"></span><span>Authority Verified</span></div>
+                <div class="ras-track-item"><span class="ras-track-dot"></span><span>Resolved</span></div>
+              </div></div>
+              <div class="ras-phone-cap"><b>Status Tracker</b>solves: knowing your report actually mattered</div>
+            </div>
+
+            <div class="ras-phone-col">
+              <div class="ras-phone-basic"><div class="ras-phone-screen ras-scr-ussd">
+                <div class="ras-ussd-hdr">*RAS# ACTIVE</div>
+                <div>1. Check route safety</div>
+                <div>2. Report incident</div>
+                <div>3. SOS</div>
+                <div>4. My reports</div>
+                <div>5. Exit</div>
+              </div></div>
+              <div class="ras-phone-cap"><b>USSD Fallback</b>solves: working with zero data, zero app, any phone</div>
+            </div>
+
+          </div>
+          <div class="ras-carousel-hint">scroll for more <span class="ras-arrow">&#x2192;</span></div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-prototype -->
+
+    <div id="ras-sec-reflect">
+    <!-- Learnings -->
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F9EA;</span><h2>Learnings</h2></div>
+        <p class="ras-lede">If you take one thing from this case study, let it be this: the biggest shift wasn't a feature, it was catching my own assumptions early enough for research to correct them before they shaped the product. Designing for Musa and Hauwa side by side, with equal rigour, reframed what "accessibility" means in a resource-constrained context — it's not an extra interface layered on top, it's the same three or four MUST-have decisions solved once and adapted, not solved twice.</p>
+        <p>I also learned to sit with research gaps instead of explaining them away. The thinness of the disabled-user research sheets could have read as "not enough data exists." Treating it as a finding in its own right is what pushed accessibility from a nice-to-have into a MUST-have column on the MoSCoW table.</p>
+      </div>
+    </div>
+
+    <!-- Sketch principles -->
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4D0;</span><h2>Principles Going Into Sketching</h2></div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">01</span><span>Minimum 44×44pt touch targets — 60×60pt for Hauwa's screens</span></li>
+          <li class="pitem"><span class="pn">02</span><span>Colour never alone — every coded element pairs with an icon and label</span></li>
+          <li class="pitem"><span class="pn">03</span><span>Offline-first — every screen has a legible no-data state</span></li>
+          <li class="pitem"><span class="pn">04</span><span>One primary action per screen, especially on SOS and Alert screens</span></li>
+          <li class="pitem"><span class="pn">05</span><span>SMS-first mental model — every feature should work as a text message first</span></li>
+          <li class="pitem"><span class="pn">06</span><span>USSD parity — anything reachable via USSD must be reachable within 3 taps in-app</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="cs-step">
+      <div class="cs-step-inner" style="max-width:700px;">
+        <div class="step-label" style="justify-content:center;"><span class="step-icon">&#x1F6A7;</span><h2 style="text-align:center;">Where RAS Is Now</h2></div>
+        <div class="ras-status-box">
+          <p style="margin:0; font-weight:600;"><span class="ras-status-dot"></span>Currently in testing</p>
+          <p style="margin:10px 0 0; color:var(--mut); font-size:0.9rem;">Screens, prototype links, and build details aren't public yet. This case study documents the research and design thinking that shaped RAS up to the sketch-ready stage — it'll be updated as the product moves further along.</p>
+        </div>
+      </div>
+    </div>
+    </div><!-- /ras-sec-reflect -->
+
+    <div class="cs-nav">
+      <button class="cs-nav-btn" onclick="window.location='../projects/fastrack.html'">&larr; Fastrack Project</button>
+      <button class="cs-nav-btn" onclick="window.location='../projects/planetcred.html'">PlanetCred Project &rarr;</button>
+    </div>
+
+    <footer class="page-footer">
+      <div class="pfl" onclick="window.location='../index.html'">Divine.</div>
+      <p class="pfc">&copy; <span class="copy-year">2026</span> Williams Divine</p>
+      <div class="pflinks"><a onclick="window.location='../work.html'">Work</a><a onclick="window.location='../about.html'">About</a><a onclick="window.location='../index.html#contact'">Contact</a></div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="zoom-modal" id="zModal" onclick="closeZ()">
+    <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function () {
+      var nodes = Array.prototype.slice.call(document.querySelectorAll('#rasTrail .ras-trail-node'));
+      var sections = nodes.map(function (n) { return document.getElementById(n.dataset.target); });
+
+      nodes.forEach(function (n) {
+        n.addEventListener('click', function () {
+          var target = document.getElementById(n.dataset.target);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var idx = sections.indexOf(entry.target);
+            if (idx === -1) return;
+            if (entry.isIntersecting) {
+              nodes.forEach(function (n) { n.classList.remove('ras-active'); });
+              nodes[idx].classList.add('ras-active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+        sections.forEach(function (s) { if (s) observer.observe(s); });
+      }
+    })();
+
+    // Only the phone carousels scroll, and only when the screens genuinely
+    // don't fit at full size. Otherwise they stay centred, full-size, static.
+    (function () {
+      var outers = Array.prototype.slice.call(document.querySelectorAll('.ras-carousel-outer'));
+      function checkOverflow() {
+        outers.forEach(function (outer) {
+          var track = outer.querySelector('.ras-carousel');
+          if (!track) return;
+          var overflowing = track.scrollWidth > track.clientWidth + 2;
+          outer.classList.toggle('ras-has-overflow', overflowing);
+        });
+      }
+      checkOverflow();
+      window.addEventListener('resize', function () {
+        clearTimeout(window.__rasResizeT);
+        window.__rasResizeT = setTimeout(checkOverflow, 150);
+      });
+    })();
+
+    // Sections gently fade + rise into view as the reader scrolls to them.
+    // Purely additive: if IntersectionObserver isn't supported, sections
+    // simply never get the "pre" class and stay fully visible as normal.
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var steps = Array.prototype.slice.call(document.querySelectorAll('#pg-cs-RAS .cs-step'));
+      steps.forEach(function (el) { el.classList.add('ras-reveal-pre'); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('ras-reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      steps.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
