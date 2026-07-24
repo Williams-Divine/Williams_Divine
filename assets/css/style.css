@@ -188,7 +188,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      font-size: .9rem;
+      font-size: 1rem;
       border-radius: 50% !important
     }
 
@@ -278,7 +278,7 @@
       gap: 7px;
       padding: 12px 24px;
       border-radius: 50px;
-      font-size: .82rem;
+      font-size: 1rem;
       font-weight: 700;
       transition: all .28s;
       border: 2px solid transparent;
@@ -367,7 +367,7 @@
 
     .tag {
       display: inline-flex;
-      font-size: .6rem;
+      font-size: .7rem;
       font-weight: 700;
       padding: 3px 10px;
       border-radius: 50px;
@@ -512,8 +512,8 @@
 
     .h-name {
       font-family: 'Fredoka One', cursive;
-      font-size: clamp(46px, 5.8vw, 80px);
-      line-height: 1.06;
+      font-size: clamp(2.1rem, 5.8vw, 3rem);
+      line-height: 1.2;
       margin-bottom: 22px;
       opacity: 0;
       animation: up .8s .25s forwards
@@ -740,7 +740,7 @@
     .mq-item {
       font-family: 'Fredoka One', cursive;
       font-size: .9rem;
-      color: rgba(247, 246, 240, .44);
+      color: rgba(255, 255, 255, 0.677);
       padding: 0 30px;
       display: flex;
       align-items: center;
@@ -850,6 +850,7 @@
       border-color: var(--acc)
     }
 
+
     .feat-illo {
       height: 260px;
       overflow: hidden;
@@ -945,14 +946,15 @@
       grid-template-columns: 1fr auto;
       gap: 64px;
       align-items: center;
-      max-width: 1000px;
-      margin: 0 auto
+      max-width: 1200px;
+      margin: 0 
     }
 
     .ab-text h2 {
       font-family: 'Fredoka One', cursive;
       font-size: clamp(26px, 3.5vw, 40px);
-      margin-bottom: 16px
+      margin-bottom: 16px;
+      max-width: 800px;
     }
 
     .ab-text h2 .em {
@@ -960,11 +962,14 @@
     }
 
     .ab-text p {
-      font-size: .95rem;
+      font-size: 1rem;
       line-height: 1.84;
       color: var(--mut);
-      max-width: 480px;
-      margin-bottom: 14px
+      max-width: 540px;
+      margin-bottom: 14px;
+            text-align: justify;    
+
+      text-align: justify;    
     }
 
     .ab-text p strong {
@@ -1305,7 +1310,10 @@
       font-size: .97rem;
       line-height: 1.82;
       color: var(--mut);
+            text-align: justify;    
+
       max-width: 800px
+      
     }
 
     .filter-bar {
@@ -1344,7 +1352,7 @@
 
     .proj-row {
       display: grid;
-      grid-template-columns: 400px 1fr;
+      grid-template-columns: minmax(350px, 400px) 1fr;
       gap: 48px;
       align-items: start;
       border-top: 1.5px solid var(--bdr);
@@ -1379,7 +1387,7 @@
       border-radius: var(--r-lg);
       overflow: hidden;
       border: 1.5px solid var(--bdr);
-      height: 280px;
+      height: 320px;
       transition: all .3s;
       flex-shrink: 0;
       background: var(--bg2)
@@ -1416,8 +1424,8 @@
 
     .proj-num {
       font-family: 'Fredoka One', cursive;
-      font-size: .85rem;
-      color: var(--bdr);
+      font-size: .9rem;
+      color: var(--mut);
       transition: color .25s;
       min-width: 24px
     }
@@ -1429,7 +1437,7 @@
     }
 
     .proj-status {
-      font-size: .58rem;
+      font-size: .7rem;
       font-weight: 700;
       padding: 3px 10px;
       border-radius: 50px;
@@ -1455,7 +1463,7 @@
     }
 
     .proj-desc {
-      font-size: .84rem;
+      font-size: 1rem;
       line-height: 1.67;
       color: var(--mut);
       max-width: 520px
@@ -1520,7 +1528,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 68px;
       align-items: start;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto
     }
 
@@ -1539,6 +1547,8 @@
       font-size: .95rem;
       line-height: 1.84;
       color: var(--mut);
+            text-align: justify;    
+
       margin-bottom: 14px
     }
 
@@ -1575,25 +1585,27 @@
     }
 
     .icard h3 {
-      font-family: 'Fredoka One', cursive;
+      font-family:  cursive;
       font-size: .92rem;
-      font-weight: 400px;
       margin-bottom: 5px
     }
 
     .icard p {
       font-size: .82rem;
-      line-height: 1.65;
+      line-height: 1.65;      
+      text-align: justify;    
       color: var(--mut)
+      
     }
 
     .sk-sec {
       padding: 76px 64px;
+      
       background: var(--bg2)
     }
 
     .sk-in {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto
     }
 
@@ -1768,12 +1780,20 @@
     .cert-sec {
       padding: 76px 64px;
       background: var(--bg)
+      
     }
+.cert-sec .wrap{
+              max-width: 1100px;
+      margin: 0 auto;
 
+}
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
+            max-width: 1100px;
+
+      margin: 0 auto;
       margin-top: 28px
     }
 
@@ -2208,6 +2228,8 @@
       font-size: .9rem;
       line-height: 1.82;
       color: var(--mut);
+            text-align: justify;    
+
       margin-bottom: 12px
     }
 
@@ -2285,7 +2307,7 @@
       border: 1.5px solid var(--bdr);
       border-radius: var(--r-sm);
       padding: 13px 16px;
-      font-size: .84rem;
+      font-size: .9rem;
       line-height: 1.65;
       color: var(--mut);
       transition: border-color .22s
@@ -2464,6 +2486,8 @@
     .persona-body p {
       font-size: .82rem;
       line-height: 1.65;
+            text-align: justify;    
+
       color: var(--mut);
       margin-bottom: 12px
     }
@@ -2503,7 +2527,7 @@
 
     .pd-val {
       font-size: .78rem;
-      font-weight: 600;
+      font-weight: 400;
       color: var(--text)
     }
 
@@ -2529,7 +2553,7 @@
     }
 
     .cs-nav-btn {
-      font-size: .88rem;
+      font-size: 1rem;
       color: var(--mut);
       transition: color .22s;
       cursor: none;
@@ -2688,20 +2712,7 @@
 
     @media(max-width:1100px) {
       /* carousel: no grid changes needed at 1100px */
-  
-    @media(max-width:900px) {
-      .nav {
-        padding: 11px 20px
-      }
-
-      .nav-desk {
-        display: none !important
-      }
-
-      .ham {
-        display: flex !important
-      }
-
+      
       .hero-in {
         grid-template-columns: 1fr;
         padding: 72px 20px 56px;
@@ -2723,6 +2734,20 @@
       .h-btns {
         justify-content: center
       }
+    }
+    @media(max-width:900px) {
+      .nav {
+        padding: 11px 20px
+      }
+
+      .nav-desk {
+        display: none !important
+      }
+
+      .ham {
+        display: flex !important
+      }
+
 
       .av-frame {
         width: 260px;
