@@ -53,6 +53,36 @@
     #pg-cs-planetcred .csx-reveal-pre { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
     #pg-cs-planetcred .csx-reveal-in { opacity: 1; transform: translateY(0); }
 
+    /* ---------- Headers use the theme's own high-contrast text colour, not the
+       purple accent — purple is reserved for buttons/CTAs and interactive state only. ---------- */
+    #pg-cs-planetcred h1, #pg-cs-planetcred h1 .em, #pg-cs-planetcred h2, #pg-cs-planetcred h3, #pg-cs-planetcred h4 {
+      color: var(--text) !important;
+    }
+
+    /* ---------- Project certificates modal ---------- */
+    .csx-cert-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.78); align-items: center; justify-content: center; padding: 24px;
+    }
+    .csx-cert-modal.csx-open { display: flex; }
+    .csx-cert-inner {
+      background: var(--bg, #fff); border-radius: 16px; padding: 28px; max-width: 900px; width: 100%;
+      max-height: 88vh; overflow-y: auto; position: relative;
+    }
+    .csx-cert-inner h3 { margin: 0 0 18px; text-align: center; color: var(--text); }
+    .csx-cert-close {
+      position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.8rem;
+      line-height: 1; cursor: pointer; color: var(--mut); transition: color 0.15s ease;
+    }
+    .csx-cert-close:hover { color: var(--text); }
+    .csx-cert-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .csx-cert-grid img {
+      width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      flex: 1 1 320px;
+    }
+
     /* Grid/card-heavy sections get more room instead of feeling squeezed */
     #pg-cs-planetcred .csx-wide { max-width: 1180px !important; padding-left: 28px; padding-right: 28px; box-sizing: border-box; }
     @media (max-width: 900px) { #pg-cs-planetcred .csx-wide { padding-left: 20px; padding-right: 20px; } }
@@ -131,6 +161,7 @@
       <p class="cs-sub">A cross-platform climate action platform that enables users to document, verify, and showcase environmental contributions through a trusted portfolio system.</p>
       <div class="cs-top-links">
         <a href="javascript:void(0)" class="btn btn-dark" style="opacity:0.5;cursor:not-allowed">Design files not publicly available</a>
+        <button type="button" class="btn btn-ghost" onclick="pcOpenCerts()">View Project Certs</button>
       </div>
       <div class="cs-stats">
         <div class="cs-stat"><div class="cssn">Ongoing</div><div class="cssl">Duration</div></div>
@@ -228,7 +259,7 @@
           <div style="background:var(--acc-d); border:1px solid var(--acc); color:var(--acc); padding:12px 20px; border-radius:30px; font-weight:bold;">Earn Certificate</div>
         </div>
         <div style="width:100%; text-align:center;">
-          <img loading="lazy" decoding="async" src="images/PlanetCred_Mockup_Flow.png" alt="PlanetCred Climate Flow Mockup" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.12);" />
+          <img loading="lazy" decoding="async" src="../images/PlanetCred_Mockup_Flow.png" alt="PlanetCred Climate Flow Mockup" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.12);" />
         </div>
       </div>
     </div>
@@ -296,8 +327,32 @@
     <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
   </div>
 
+  <!-- Project completion certificates -->
+  <div class="csx-cert-modal" id="csxCertModal" onclick="pcCloseCerts(event)">
+    <div class="csx-cert-inner">
+      <button type="button" class="csx-cert-close" onclick="pcCloseCerts(event)" aria-label="Close">&times;</button>
+      <h3>PlanetCred — Completion Certificates</h3>
+      <div class="csx-cert-grid">
+        <img src="../images/planetcred 1.png" alt="PlanetCred project completion certificate 1" />
+        <img src="../images/planetcred 2.png" alt="PlanetCred project completion certificate 2" />
+      </div>
+    </div>
+  </div>
+
   <script src="../assets/js/main.js"></script>
   <script>
+    function pcOpenCerts() {
+      var m = document.getElementById('csxCertModal');
+      if (m) { m.classList.add('csx-open'); document.body.style.overflow = 'hidden'; }
+    }
+    function pcCloseCerts(e) {
+      var m = document.getElementById('csxCertModal');
+      if (!m) return;
+      if (e.target === m || (e.target.classList && e.target.classList.contains('csx-cert-close'))) {
+        m.classList.remove('csx-open');
+        document.body.style.overflow = '';
+      }
+    }
     (function () {
       var nodes = Array.prototype.slice.call(document.querySelectorAll('#csxTrailPC .csx-trail-node'));
       var sections = nodes.map(function (n) { return document.getElementById(n.dataset.target); });
@@ -337,6 +392,16 @@
       }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
       steps.forEach(function (el) { io.observe(el); });
     })();
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var m = document.getElementById('csxCertModal');
+        if (m && m.classList.contains('csx-open')) {
+          m.classList.remove('csx-open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
   </script>
 </body>
 </html>

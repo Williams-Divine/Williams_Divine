@@ -60,6 +60,12 @@
     #pg-cs-Fastrack .csx-reveal-pre { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
     #pg-cs-Fastrack .csx-reveal-in { opacity: 1; transform: translateY(0); }
 
+    /* ---------- Headers use the theme's own high-contrast text colour, not the
+       purple accent — purple is reserved for buttons/CTAs and interactive state only. ---------- */
+    #pg-cs-Fastrack h1, #pg-cs-Fastrack h1 .em, #pg-cs-Fastrack h2, #pg-cs-Fastrack h3, #pg-cs-Fastrack h4 {
+      color: var(--text) !important;
+    }
+
     /* Fluid side padding so content never feels squeezed on small screens */
     @media (max-width: 560px) {
       #pg-cs-Fastrack .cs-step-inner { padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
@@ -443,7 +449,7 @@
       </div>
     </div>
 
-      <div class="cs-nav"><button class="cs-nav-btn" onclick="window.location='../work.html'">&larr; Back to Work</button><button
+      <div class="cs-nav"><button class="cs-nav-btn" onclick="window.location='../projects/RAS.html'">&larr; RAS Project</button><button
         class="cs-nav-btn" onclick="window.location='../projects/planetcred.html'">PlanetCred Project &rarr;</button></div>
 <!-- wireframe -->
 <!-- 
