@@ -2974,3 +2974,20 @@
      @media(max-width:850px) {
       /* carousel: single column handled by card width clamp */
     }
+  @media(max-width:550px) {
+      /* carousel: single column handled by card width clamp */
+        .sk-grid {
+        grid-template-columns:  1fr
+      }
+       .proj-thumb {
+     
+      height: 150px;
+      
+    }
+   
+    .feat-card .feat-illo, .feat-card svg  {
+      height: 120px !important; 
+    }
+   
+    }
+  
