@@ -60,13 +60,14 @@ function closeMob() {
 })();
 
 /* --- CV download --- */
+
+
 function openCV() {
-  var a = document.createElement('a');
-  a.href = 'assets/files/Williams Divine - Product Designer.pdf';
-  a.download = 'Williams Divine - Product Designer.pdf';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+    document.getElementById("cvModal").style.display = "flex";
+}
+
+function closeCV() {
+    document.getElementById("cvModal").style.display = "none";
 }
 
 /* --- Avatar switcher (home only) --- */
