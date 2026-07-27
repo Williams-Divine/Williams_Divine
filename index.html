@@ -18,6 +18,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <!-- ═══ PREFETCH: load other pages silently after this one finishes ═══ -->
+  <!-- These tell the browser: "when idle, grab these so they're instant" -->
+  <link rel="prefetch" href="work.html" as="document" />
+  <link rel="prefetch" href="about.html" as="document" />
+  <link rel="prefetch" href="projects/fastrack.html" as="document" />
+  <link rel="prefetch" href="projects/planetcred.html" as="document" />
+  <link rel="prefetch" href="projects/maamaka.html" as="document" />
+  <link rel="prefetch" href="projects/akum.html" as="document" />
+  <link rel="prefetch" href="projects/handyman.html" as="document" />
+
+  <!-- PRELOAD: fetch the shared JS immediately (it's needed on every page) -->
+  <link rel="preload" href="assets/js/main.js" as="script" />
 </head>
 <body>
   <div class="cur" id="cur"></div>
@@ -203,10 +220,12 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
               PHASE</text>
           </svg>
             <div class="feat-body">
-              <div class="feat-tags"><span class="tag ta">Fastrack</span><span class="tag tp">Progressive Web App (PWA)</span><span
-                  class="tag tp">B2C/B2B</span></div>
+              <div class="feat-tags"><span class="tag ta">Fastrack</span><span
+                  class="tag tp">B2C/B2B</span> <span class="tag tp">Progressive Web App (PWA)</span></div>
               <h3 class="feat-ttl">Fastrack</h3>
-              <p class="feat-desc">Millions of usable products are wasted while many people struggle with affordability. Fastrack explores a trusted marketplace for discounted near-expiry products, reducing waste while making everyday essentials more accessible.
+              <p class="feat-desc">Designed to reduce product waste by connecting consumers 
+            to discounted near-expiry products.
+              </p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
           </div>
@@ -218,7 +237,7 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
             <div class="feat-body">
               <div class="feat-tags"><span class="tag ta">Emergency Response</span><span class="tag tp">Safety-Critical</span></div>
               <h3 class="feat-ttl">Rapid Alert System (RAS)</h3>
-              <p class="feat-desc">Delayed emergency response leaves people without timely access to help. RAS enables faster community alerts and coordinated response during critical situations.</p>
+              <p class="feat-desc"> RAS enables faster community alerts and coordinated response during critical situations.</p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
           </div>
@@ -230,7 +249,7 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
               <div class="feat-tags"><span class="tag ta">EchobitsTech</span><span class="tag tp">Web App</span><span
                   class="tag tp">Mobile</span></div>
               <h3 class="feat-ttl">PlanetCred</h3>
-              <p class="feat-desc">Environmental contributions are difficult to verify and often go unnoticed. PlanetCred helps users document, track, and showcase their climate impact.
+              <p class="feat-desc">A climate action platform for users to document and verify environmental contributions.
               </p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
@@ -242,7 +261,7 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
             <div class="feat-body">
               <div class="feat-tags"><span class="tag ta">V2 ongoing</span><span class="tag tp">Accessibility</span><span class="tag tp">Mobile</span></div>
               <h3 class="feat-ttl">MaAmaka</h3>
-              <p class="feat-desc">Shopping online shouldn't depend on sight. MaAmaka reimagines e-commerce for blind users through accessible, voice-first interactions.</p>
+              <p class="feat-desc">MaAmaka reimagines e-commerce for blind users through accessible.</p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
           </div>
@@ -308,10 +327,11 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
               PHASE</text>
           </svg>
             <div class="feat-body">
-              <div class="feat-tags"><span class="tag ta">Fastrack</span><span class="tag tp">Progressive Web App (PWA)</span><span
-                  class="tag tp">B2C/B2B</span></div>
+              <div class="feat-tags"><span class="tag ta">Fastrack</span><span
+                  class="tag tp">B2C/B2B</span><span class="tag tp">Progressive Web App (PWA)</span></div>
               <h3 class="feat-ttl">Fastrack</h3>
-              <p class="feat-desc">Millions of usable products are wasted while many people struggle with affordability. Fastrack explores a trusted marketplace for discounted near-expiry products, reducing waste while making everyday essentials more accessible.
+              <p class="feat-desc">Designed to reduce product waste by connecting consumers 
+            to discounted near-expiry products.
               </p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
@@ -324,7 +344,7 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
               <div class="feat-tags"><span class="tag ta">EchobitsTech</span><span class="tag tp">Web App</span><span
                   class="tag tp">Mobile</span></div>
               <h3 class="feat-ttl">PlanetCred</h3>
-              <p class="feat-desc">A cross-platform climate action platform enabling users to document and verify environmental contributions.
+              <p class="feat-desc">A climate action platform for users to document and verify environmental contributions.
               </p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
@@ -336,7 +356,7 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
             <div class="feat-body">
               <div class="feat-tags"><span class="tag ta">V2 ongoing</span><span class="tag tp">Accessibility</span><span class="tag tp">Mobile</span></div>
               <h3 class="feat-ttl">MaAmaka</h3>
-              <p class="feat-desc">Voice-controlled e-commerce for blind Nigerians. Accessibility-first.</p>
+              <p class="feat-desc">MaAmaka reimagines e-commerce for blind users through accessible.</p>
               <button class="feat-cta">View Case Study &rarr;</button>
             </div>
           </div>
@@ -358,7 +378,6 @@ src="images/portrait_3.png"        style="height: fit-content;"      alt="Willia
         </div><!-- /feat-carousel-wrap -->
       </div>
     </div>
-
     <!-- Slide 2: About strip -->
     <div class="slide" id="s-about">
       <div class="about-in">
