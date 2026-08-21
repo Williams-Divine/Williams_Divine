@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-K0YDNBXJVL');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>HandyMan (HandyMen) Case Study — Williams Divine</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%237B5EA7'/%3E%3Ctext x='32' y='45' font-family='Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='white' font-weight='900'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+
+  <div class="mob" id="mob">
+   <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Archive</a>
+    <button onclick="openCV()">CV &#x1F4C4;</button>
+    <button onclick="closeMob()" class="btn mob-cta"><a href="../index.html#contact">Say Hi &#x1F44B;</a></button>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><a href="../index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a></div>
+    <div class="nav-desk" id="navDesk">
+      <a id="nl-home" href="../index.html">Home</a>
+      <a id="nl-work" href="../work.html">Work</a>
+      <a id="nl-about" href="../about.html">About</a>
+      <a id="nl-about" href="../archive.html">Archive</a>
+      <button onclick="openCV()">CV &#x1F4C4;</button>
+      <button class="theme-btn" id="themeBtn">&#x1F319;</button>
+      <a class="btn nav-cta" href="../index.html#contact">Say Hi &#x1F44B;</a>
+    </div>
+    <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="pg-cs-handymen" class="page">
+    <div class="cs-page">
+      <button class="cs-back" onclick="window.location='../archive.html'">&larr; Back to Archive</button>
+      <div class="cs-meta"><span class="tag ta">Hackathon</span><span class="tag tp">Web App</span><span
+          class="tag tp">B2B</span></div>
+      <h1 class="cs-title">HandyMan <span class="em">HandyMen Side &#x1F6E0;&#xFE0F;</span></h1>
+      <p class="cs-sub">The service-provider half of HandyMan &mdash; enabling skilled workers to showcase services, manage
+        job requests, and receive secure payment within one coherent design system.</p>
+      <div class="cs-top-links"><a
+          href="https://www.figma.com/design/R1FMKHMZQ8yDF8cgiKCfFl/Handyman-Proj?node-id=63-4120" target="_blank"
+          class="btn btn-dark">View Mockup &rarr;</a><a
+          href="https://www.figma.com/board/0HT1pntM0FySPS6P55JeTr/HandyMan?node-id=20-214" target="_blank"
+          class="btn btn-ghost">FigJam</a></div>
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <div class="cssn">2 Wks</div>
+          <div class="cssl">Duration</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Sole</div>
+          <div class="cssl">Designer</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Web App</div>
+          <div class="cssl">Platform</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">B2B</div>
+          <div class="cssl">Focus</div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F50D;</span>
+          <h2>Overview</h2>
+        </div>
+        <p>Skilled workers in Nigeria lack a structured way to market their services, manage bookings, and receive
+          secure payment. They rely on informal referrals with inconsistent income and no professional presence online.
+        </p>
+      </div>
+    </div>
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F464;</span>
+          <h2>Define - The Challenge</h2>
+        </div>
+        <p>Designing this provider side <strong>simultaneously alongside the customer flow</strong> within a 2-week
+          hackathon. Two very different user types (service seeker vs service provider) - one coherent design system
+          that feels like a single product.</p>
+      </div>
+    </div>
+    <div class="cs-imgs-block"
+      style="background:rgba(82,209,124,0.05); border-radius:16px; padding:40px 20px; margin:40px 0;">
+      <div class="cs-imgs-lbl"
+        style="color:var(--text); text-align:center; margin-bottom:12px; font-weight:700; font-size:1.4rem;">Provider
+        Dashboard: Wireframe to Mockup</div>
+      <p
+        style="text-align:center; color:var(--mut); margin-bottom:30px; font-size:0.95rem; max-width:600px; margin-left:auto; margin-right:auto;">
+        Creating a clear, robust interface for service providers to manage jobs, see earnings, and build reputation.</p>
+      <div style="display:flex; flex-direction:column; gap:40px; align-items:center;">
+        <div style="width:100%; text-align:center;">
+          <h4 style="margin-bottom:12px; color:var(--acc);">1. Provider Wireframes</h4>
+          <img loading="lazy" decoding="async" src="images/Handyman - Handymen Wireframes.png"
+            alt="HandyMen Provider Wireframes"
+            style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);" />
+        </div>
+        <div style="width:100%; text-align:center;">
+          <h4 style="margin-bottom:12px; color:var(--acc);">2. High-Fidelity Mockups</h4>
+          <img loading="lazy" decoding="async" src="images/Handyman - Handymen Mockups.png"
+            alt="HandyMen Provider Mockups"
+            style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.12);" />
+        </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4A1;</span>
+          <h2>Ideate - Key Features</h2>
+        </div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">&#x2713;</span><span>Service showcase profile - skills, ratings, and
+              availability</span></li>
+          <li class="pitem"><span class="pn">&#x2713;</span><span>Job request management - accept, decline, or
+              schedule</span></li>
+          <li class="pitem"><span class="pn">&#x2713;</span><span>Secure in-app payment for completed tasks</span></li>
+          <li class="pitem"><span class="pn">&#x2713;</span><span>Customer rating system to build reputation over
+              time</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F9EA;</span>
+          <h2>Learnings</h2>
+        </div>
+        <p>Balancing two user groups in a marketplace taught me to think in systems, not just screens. Every customer
+          feature had a mirror on the provider side - keeping both coherent under time pressure was the core design
+          challenge.</p>
+      </div>
+    </div>
+    <div class="cs-links-sec"><a
+        href="https://www.figma.com/design/R1FMKHMZQ8yDF8cgiKCfFl/Handyman-Proj?node-id=63-4120" target="_blank"
+        class="btn btn-dark">View Mockup &rarr;</a><a
+        href="https://www.figma.com/board/0HT1pntM0FySPS6P55JeTr/HandyMan?node-id=20-214" target="_blank"
+        class="btn btn-ghost">FigJam</a></div>
+
+    <div class="cs-nav"><button class="cs-nav-btn" onclick="window.location='../projects/handyman.html'">&larr; Customer Flow</button><button
+        class="cs-nav-btn" onclick="window.location=''"></button>
+      </div>
+      
+    <footer class="page-footer">
+      <div class="pfl" onclick="window.location='../index.html'">Divine.</a></div>
+      <p class="pfc">&copy; <span class="copy-year">2026</span> Williams Divine</p>
+      <div class="pflinks"><a onclick="window.location='../work.html'">Work</a><a onclick="window.location='../about.html'">About</a><a
+          onclick="window.location='../index.html#contact'">Contact</a></div>
+    </footer>
+  </div>
+
+  <!-- Maamaka proj -->
+
+  <!-- Lightbox -->
+  <div class="zoom-modal" id="zModal" onclick="closeZ()">
+    <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+<!-- CV Modal -->
+<div id="cvModal" class="cv-modal">
+  <div class="cv-content">
+
+    <div class="cv-header">
+      <h3>Divine Williams - CV</h3>
+      <span class="close-btn" onclick="closeCV()">&times;</span>
+    </div>
+
+    <iframe
+      src="WilliamsDivine-ProductDesigner.pdf"
+      width="100%"
+      height="500px">
+    </iframe>
+
+    <div class="cv-footer">
+      <a
+        href="WilliamsDivine-ProductDesigner.pdf"
+        download="Williams Divine - Product Designer.pdf"
+        class="btn btn-fill ">
+        Download CV
+      </a>
+    </div>
+
+  </div>
+</div>
+</html>

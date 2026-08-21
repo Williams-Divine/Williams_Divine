@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-K0YDNBXJVL');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>PlanetCred Case Study — Williams Divine</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%237B5EA7'/%3E%3Ctext x='32' y='45' font-family='Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='white' font-weight='900'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Page-scoped extras. Everything is prefixed "csx-" and scoped under
+       #pg-cs-planetcred so it can never collide with the global stylesheet. -->
+  <style>
+    /* Hard safety net: nothing on this page is ever allowed to stretch it wider than the viewport. */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    #pg-cs-planetcred { max-width: 100vw; overflow-x: hidden; }
+
+    #pg-cs-planetcred .cs-step { padding: 68px 0 !important; }
+    #pg-cs-planetcred .csx-lede { font-size: 1.05rem; line-height: 1.75; color: var(--text); }
+
+    /* ---------- UI polish: hero accent blobs ---------- */
+    #pg-cs-planetcred .cs-page { position: relative; overflow: hidden; }
+    #pg-cs-planetcred .csx-blob { position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; z-index: 0; }
+    #pg-cs-planetcred .csx-blob-a { width: 320px; height: 320px; background: #22c55e; opacity: 0.14; top: -140px; right: -60px; }
+    #pg-cs-planetcred .csx-blob-b { width: 240px; height: 240px; background: var(--acc); opacity: 0.12; top: 160px; left: -90px; }
+    #pg-cs-planetcred .cs-page > *:not(.csx-blob) { position: relative; z-index: 1; }
+
+    /* ---------- UI polish: icon badges ---------- */
+    #pg-cs-planetcred .step-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 13px; flex-shrink: 0;
+      background: rgba(123,94,167,0.12); font-size: 1.25rem;
+    }
+
+    /* ---------- UI polish: button + nav hover lift ---------- */
+    #pg-cs-planetcred .btn, #pg-cs-planetcred .cs-nav-btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #pg-cs-planetcred .btn:hover:not([style*="cursor:not-allowed"]), #pg-cs-planetcred .cs-nav-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    /* ---------- UI polish: scroll-reveal ---------- */
+    #pg-cs-planetcred .csx-reveal-pre { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    #pg-cs-planetcred .csx-reveal-in { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Headers use the theme's own high-contrast text colour, not the
+       purple accent — purple is reserved for buttons/CTAs and interactive state only. ---------- */
+    #pg-cs-planetcred h1, #pg-cs-planetcred h1 .em, #pg-cs-planetcred h2, #pg-cs-planetcred h3, #pg-cs-planetcred h4 {
+      color: var(--text) !important;
+    }
+
+    /* ---------- Project certificates modal ---------- */
+    .csx-cert-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.78); align-items: center; justify-content: center; padding: 24px;
+    }
+    .csx-cert-modal.csx-open { display: flex; }
+    .csx-cert-inner {
+      background: var(--bg, #fff); border-radius: 16px; padding: 28px; max-width: 900px; width: 100%;
+      max-height: 88vh; overflow-y: auto; position: relative;
+    }
+    .csx-cert-inner h3 { margin: 0 0 18px; text-align: center; color: var(--text); }
+    .csx-cert-close {
+      position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.8rem;
+      line-height: 1; cursor: pointer; color: var(--mut); transition: color 0.15s ease;
+    }
+    .csx-cert-close:hover { color: var(--text); }
+    .csx-cert-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .csx-cert-grid img {
+      width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      flex: 1 1 320px;
+    }
+
+    /* Grid/card-heavy sections get more room instead of feeling squeezed */
+    #pg-cs-planetcred .csx-wide { max-width: 1180px !important; padding-left: 28px; padding-right: 28px; box-sizing: border-box; }
+    @media (max-width: 900px) { #pg-cs-planetcred .csx-wide { padding-left: 20px; padding-right: 20px; } }
+    @media (max-width: 560px) {
+      #pg-cs-planetcred .cs-step-inner { padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
+      #pg-cs-planetcred .csx-wide { padding-left: 16px; padding-right: 16px; }
+    }
+
+    /* Bigger, fluid live prototype embed */
+    #pg-cs-planetcred .proto-embed { width: 100%; }
+    #pg-cs-planetcred .proto-embed iframe {
+      width: 100%; height: 75vh; min-height: 460px; max-height: 780px;
+      border: 0; border-radius: 14px; display: block;
+    }
+
+    /* Footstep trail */
+    #pg-cs-planetcred .csx-trail-wrap { max-width: 1000px; margin: 10px auto 0; padding: 0 20px; }
+    #pg-cs-planetcred .csx-trail { display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding: 6px 4px 16px; }
+    #pg-cs-planetcred .csx-trail::-webkit-scrollbar { display: none; }
+    #pg-cs-planetcred .csx-trail-node {
+      flex: 1 1 0; min-width: 92px; display: flex; flex-direction: column; align-items: center;
+      position: relative; text-align: center; cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; padding: 0;
+    }
+    #pg-cs-planetcred .csx-trail-node:not(:last-child)::after {
+      content: ''; position: absolute; top: 13px; left: 55%; width: 90%; border-top: 2px dashed var(--bdr); z-index: 0;
+    }
+    #pg-cs-planetcred .csx-trail-step {
+      font-size: 0.95rem; line-height: 26px; transition: transform 0.25s ease, filter 0.25s ease;
+      filter: grayscale(1) opacity(0.55); transform: rotate(-14deg);
+    }
+    #pg-cs-planetcred .csx-trail-node:nth-child(even) .csx-trail-step { transform: rotate(14deg); }
+    #pg-cs-planetcred .csx-trail-label { margin-top: 6px; font-size: 0.7rem; color: var(--mut); font-weight: 600; letter-spacing: 0.02em; transition: color 0.25s ease; }
+    #pg-cs-planetcred .csx-trail-node.csx-active .csx-trail-step { filter: none; transform: rotate(0deg) scale(1.25); }
+    #pg-cs-planetcred .csx-trail-node.csx-active .csx-trail-label { color: var(--acc); }
+
+
+    /* Hover polish on existing site classes — additive only */
+    #pg-cs-planetcred .icard { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #pg-cs-planetcred .icard:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    #pg-cs-planetcred .pitem { transition: transform 0.15s ease; }
+    #pg-cs-planetcred .pitem:hover { transform: translateX(4px); }
+  </style>
+</head>
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+
+  <div class="mob" id="mob">
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Archive</a>
+    <button onclick="openCV()">CV &#x1F4C4;</button>
+    <button onclick="closeMob()" class="btn mob-cta"><a href="../index.html#contact">Say Hi &#x1F44B;</a></button>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><a href="../index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a></div>
+    <div class="nav-desk" id="navDesk">
+      <a id="nl-home" href="../index.html">Home</a>
+      <a id="nl-work" href="../work.html">Work</a>
+      <a id="nl-about" href="../about.html">About</a>
+      <a id="nl-about" href="../archive.html">Archive</a>
+      <button onclick="openCV()">CV &#x1F4C4;</button>
+      <button class="theme-btn" id="themeBtn">&#x1F319;</button>
+      <a class="btn nav-cta" href="../index.html#contact">Say Hi &#x1F44B;</a>
+    </div>
+    <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="pg-cs-planetcred" class="page">
+    <div class="cs-page">
+      <div class="csx-blob csx-blob-a" aria-hidden="true"></div>
+      <div class="csx-blob csx-blob-b" aria-hidden="true"></div>
+      <button class="cs-back" onclick="window.location='../work.html'">&larr; Back to Work</button>
+      <div class="cs-meta"><span class="tag tp">Web App</span><span class="tag tp">Mobile App</span><span class="tag tp">Climate Tech</span><span class="tag ta">EchobitsTech</span></div>
+      <h1 class="cs-title">PlanetCred <span class="em">Climate Action Platform &#x1F30D;</span></h1>
+      <p class="cs-sub">A cross-platform climate action platform that enables users to document, verify, and showcase environmental contributions through a trusted portfolio system.</p>
+      <div class="cs-top-links">
+        <a href="javascript:void(0)" class="btn btn-dark" style="opacity:0.5;cursor:not-allowed">Design files not publicly available</a>
+        <button type="button" class="btn btn-ghost" onclick="pcOpenCerts()">View Project Certs</button>
+      </div>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cssn">Ongoing</div><div class="cssl">Duration</div></div>
+        <div class="cs-stat"><div class="cssn">Sole</div><div class="cssl">Designer</div></div>
+        <div class="cs-stat"><div class="cssn">Web &amp; Mobile</div><div class="cssl">Platform</div></div>
+        <div class="cs-stat"><div class="cssn">Real-world</div><div class="cssl">Context</div></div>
+      </div>
+    </div>
+
+    <!-- Footstep trail -->
+    <div class="csx-trail-wrap">
+      <nav class="csx-trail" id="csxTrailPC" aria-label="Design process progress">
+        <button class="csx-trail-node" data-target="csx-sec-overview"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Overview</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-define"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Define</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-ideate"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Ideate</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-prototype"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Prototype</span></button>
+        <button class="csx-trail-node" data-target="csx-sec-reflect"><span class="csx-trail-step">&#x1F463;</span><span class="csx-trail-label">Reflect</span></button>
+      </nav>
+    </div>
+
+    <div class="cs-imgs-block" style="background:rgba(34,197,94,0.05); border-radius:16px; padding:40px 20px; margin:40px 0;">
+      <div class="cs-imgs-lbl" style="color:var(--text); text-align:center; margin-bottom:12px; font-weight:700; font-size:1.4rem;">&#x1F517; Explore the Project</div>
+      <p style="text-align:center; color:var(--mut); margin-bottom:30px; font-size:0.95rem; max-width:600px; margin-left:auto; margin-right:auto;">Design files and detailed mockups are not publicly available, as this project is part of ongoing work with a company.</p>
+    </div>
+
+    <div id="csx-sec-overview">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F50D;</span><h2>Overview</h2></div>
+        <p class="csx-lede">Think about how many people quietly do the right thing for the planet — and how little of it ever gets recorded anywhere. PlanetCred was designed to solve exactly that: individuals contribute to environmental sustainability every day, but their efforts go undocumented and unverified, and organisations struggle to track real impact as a result.</p>
+        <p>The platform bridges this gap by enabling users to submit evidence of their actions and receive verified recognition for it.</p>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-define">
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner csx-wide">
+        <div class="step-label"><span class="step-icon">&#x1F464;</span><h2>Define - User Context</h2></div>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="icard" style="background:var(--card-bg);">
+            <h4 style="margin-bottom:8px;">Primary Users</h4>
+            <ul style="margin:0; padding-left:20px; color:var(--mut);">
+              <li>Climate-conscious individuals (Champions)</li>
+              <li>Organizations managing environmental initiatives</li>
+            </ul>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+            <div class="icard" style="background:var(--card-bg);">
+              <h4 style="margin-bottom:8px;color:var(--acc);">Goals</h4>
+              <ul style="margin:0; padding-left:20px; color:var(--mut);">
+                <li>Document and verify climate actions</li>
+                <li>Build a credible environmental portfolio</li>
+              </ul>
+            </div>
+            <div class="icard" style="background:var(--card-bg);">
+              <h4 style="margin-bottom:8px;color:#ef4444;">Frustrations</h4>
+              <ul style="margin:0; padding-left:20px; color:var(--mut);">
+                <li>Lack of recognition for efforts</li>
+                <li>No trusted way to prove impact</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F621;</span><h2>Pain Points</h2></div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">01</span><span>Difficulty proving real-world environmental impact</span></li>
+          <li class="pitem"><span class="pn">02</span><span>Lack of structured systems for tracking contributions</span></li>
+          <li class="pitem"><span class="pn">03</span><span>Low trust in self-reported climate actions</span></li>
+          <li class="pitem"><span class="pn">04</span><span>Disconnection between individuals and organizations</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-ideate">
+    <div class="cs-step" style="background:rgba(34,197,94,0.05); padding:60px 0;">
+      <div class="cs-step-inner" style="max-width:1180px; margin:0 auto; padding:0 20px;">
+        <div class="step-label" style="justify-content:center;"><span class="step-icon">&#x267F;</span><h2 style="text-align:center;">CLIMATE FLOW: ACTION TO VERIFIED IMPACT</h2></div>
+        <p style="text-align:center; color:var(--mut); margin-bottom:30px;">Designing a seamless journey from participation to certification.</p>
+        <div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:40px; color:var(--text); font-size:0.95rem;">
+          <div style="background:var(--bg3); padding:12px 20px; border-radius:30px; border:1px solid var(--bdr);">Discover Mission</div>
+          <div style="color:var(--mut); font-size:1.2rem;">&rarr;</div>
+          <div style="background:var(--bg3); padding:12px 20px; border-radius:30px; border:1px solid var(--bdr);">Take Action</div>
+          <div style="color:var(--mut); font-size:1.2rem;">&rarr;</div>
+          <div style="background:var(--bg3); padding:12px 20px; border-radius:30px; border:1px solid var(--bdr);">Submit Evidence</div>
+          <div style="color:var(--mut); font-size:1.2rem;">&rarr;</div>
+          <div style="background:var(--bg3); padding:12px 20px; border-radius:30px; border:1px solid var(--bdr);">Get Verified</div>
+          <div style="color:var(--mut); font-size:1.2rem;">&rarr;</div>
+          <div style="background:var(--acc-d); border:1px solid var(--acc); color:var(--acc); padding:12px 20px; border-radius:30px; font-weight:bold;">Earn Certificate</div>
+        </div>
+        <div style="width:100%; text-align:center;">
+          <img loading="lazy" decoding="async" src="../images/PlanetCred_Mockup_Flow.png" alt="PlanetCred Climate Flow Mockup" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.12);" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4A1;</span><h2>Ideate - Key Design Decisions</h2></div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">&#x1F4CC;</span><span>Structured submission flow to ensure credible verification</span></li>
+          <li class="pitem"><span class="pn">&#x2605;</span><span>Use of a mascot to guide and engage users emotionally</span></li>
+          <li class="pitem"><span class="pn">&#x1F4AC;</span><span>Clear mission categories for easy participation</span></li>
+          <li class="pitem"><span class="pn">&#x1F3C6;</span><span>Certificate system to reward and validate contributions</span></li>
+          <li class="pitem"><span class="pn">&#x1F4F1;</span><span>Simple, mobile-first interaction patterns</span></li>
+          <li class="pitem"><span class="pn">&#x1F504;</span><span>Seamless continuity between web and mobile experiences to ensure a consistent user journey across platforms</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-prototype">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F4F1;</span><h2>Live Prototype</h2></div>
+        <p><strong>IMPORTANT:</strong> A limited prototype is displayed due to NDA restrictions.</p>
+        <div class="proto-embed">
+          <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/h9YGXSmrYtzoqSCzkhFIxZ/Echobits-tech?node-id=14-16019&p=f&t=vEP0C9AQvO1XNw6p-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=14%3A16970" allowfullscreen title="PlanetCred Figma Prototype"></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="csx-sec-reflect">
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon">&#x1F9EA;</span><h2>Learnings</h2></div>
+        <p class="csx-lede">If there's one thing this project taught me, it's how much trust shapes user-generated systems. Balancing simplicity with credibility required careful structuring of flows and feedback — and it reinforced how much gamification and visual guidance can do for engagement, when they're not just decoration.</p>
+      </div>
+    </div>
+
+    <div class="cs-step" style="border-top:1px solid rgba(255,255,255,0.05); padding-top:40px; margin-top:20px;">
+      <div class="cs-step-inner">
+        <p style="font-size:0.85rem; color:var(--mut); font-style:italic; text-align:center;">This project was completed as part of my work with a company. Due to confidentiality, some details have been simplified and certain aspects of the system are not shown. All product rights and ownership belong to the organization.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="cs-nav">
+      <button class="cs-nav-btn" onclick="window.location='../projects/fastrack.html'">&larr; Fastrack Project</button>
+      <button class="cs-nav-btn" onclick="window.location='../projects/maamaka.html'">Maamaka Project &rarr;</button>
+    </div>
+    
+    <footer class="page-footer">
+      <div class="pfl" onclick="window.location='../index.html'">Divine.</a></div>
+      <p class="pfc">&copy; <span class="copy-year">2026</span> Williams Divine</p>
+      <div class="pflinks"><a onclick="window.location='../work.html'">Work</a><a onclick="window.location='../about.html'">About</a><a onclick="window.location='../index.html#contact'">Contact</a></div>
+    </footer>
+  </div>
+
+
+
+<!-- Fastrack proj -->
+
+  <!-- Lightbox -->
+  <div class="zoom-modal" id="zModal" onclick="closeZ()">
+    <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
+  </div>
+
+  <!-- Project completion certificates -->
+  <div class="csx-cert-modal" id="csxCertModal" onclick="pcCloseCerts(event)">
+    <div class="csx-cert-inner">
+      <button type="button" class="csx-cert-close" onclick="pcCloseCerts(event)" aria-label="Close">&times;</button>
+      <h3>PlanetCred — Completion Certificates</h3>
+      <div class="csx-cert-grid">
+        <img src="../images/planetcred 1.png" alt="PlanetCred project completion certificate 1" />
+        <img src="../images/planetcred 2.png" alt="PlanetCred project completion certificate 2" />
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    function pcOpenCerts() {
+      var m = document.getElementById('csxCertModal');
+      if (m) { m.classList.add('csx-open'); document.body.style.overflow = 'hidden'; }
+    }
+    function pcCloseCerts(e) {
+      var m = document.getElementById('csxCertModal');
+      if (!m) return;
+      if (e.target === m || (e.target.classList && e.target.classList.contains('csx-cert-close'))) {
+        m.classList.remove('csx-open');
+        document.body.style.overflow = '';
+      }
+    }
+    (function () {
+      var nodes = Array.prototype.slice.call(document.querySelectorAll('#csxTrailPC .csx-trail-node'));
+      var sections = nodes.map(function (n) { return document.getElementById(n.dataset.target); });
+      nodes.forEach(function (n) {
+        n.addEventListener('click', function () {
+          var t = document.getElementById(n.dataset.target);
+          if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var idx = sections.indexOf(entry.target);
+            if (idx === -1) return;
+            if (entry.isIntersecting) {
+              nodes.forEach(function (n) { n.classList.remove('csx-active'); });
+              nodes[idx].classList.add('csx-active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+        sections.forEach(function (s) { if (s) observer.observe(s); });
+      }
+    })();
+
+    // Sections gently fade + rise into view as the reader scrolls to them.
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var steps = Array.prototype.slice.call(document.querySelectorAll('#pg-cs-planetcred .cs-step'));
+      steps.forEach(function (el) { el.classList.add('csx-reveal-pre'); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('csx-reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      steps.forEach(function (el) { io.observe(el); });
+    })();
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var m = document.getElementById('csxCertModal');
+        if (m && m.classList.contains('csx-open')) {
+          m.classList.remove('csx-open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+</body>
+<!-- CV Modal -->
+<div id="cvModal" class="cv-modal">
+  <div class="cv-content">
+
+    <div class="cv-header">
+      <h3>Divine Williams - CV</h3>
+      <span class="close-btn" onclick="closeCV()">&times;</span>
+    </div>
+
+    <iframe
+      src="WilliamsDivine-ProductDesigner.pdf"
+      width="100%"
+      height="500px">
+    </iframe>
+
+    <div class="cv-footer">
+      <a
+        href="WilliamsDivine-ProductDesigner.pdf"
+        download="Williams Divine - Product Designer.pdf"
+        class="btn btn-fill ">
+        Download CV
+      </a>
+    </div>
+
+  </div>
+</div>
+</html>
