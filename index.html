@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <!-- Apply saved theme before paint, to avoid a light-mode flash -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
   <script>
@@ -45,18 +52,26 @@
     <a href="work.html">Work</a>
     <a href="about.html">About</a>
     <a href="archive.html">Archive</a>
-    <button onclick="openCV()">CV &#x1F4C4;</button>
+    <button onclick="openCV()">CV</button>
     <button onclick="closeMob()" class="btn mob-cta"><a href="index.html#contact">Say Hi &#x1F44B;</a></button>
   </div>
   <nav class="nav" id="nav">
-    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a></div>
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a><span class="nav-logo-title">(UX/Product Designer)</span></div>
     <div class="nav-desk" id="navDesk">
       <a id="nl-home" href="index.html">Home</a>
       <a id="nl-work" href="work.html">Work</a>
       <a id="nl-about" href="about.html">About</a>
       <a id="nl-archive" href="archive.html">Archive</a>
-      <button onclick="openCV()">CV &#x1F4C4;</button>
-      <button class="theme-btn" id="themeBtn">&#x1F319;</button>
+      <button onclick="openCV()">CV</button>
+      <button class="theme-btn" id="themeBtn">
+        <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg id="themeIconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
       <a class="btn nav-cta" href="index.html#contact">Say Hi &#x1F44B;</a>
     </div>
     <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
@@ -76,13 +91,9 @@
         <div class="orb orb2"></div>
         <div class="h-left">
           <div class="h-badge"><span class="bdot"></span> Open to opportunities  </div>
-          <h1 class="h-name"> <span class=" h-acc">Your</span> healthcare systems should 
-            help professionals make the right decisions and not slow them down</h1>
+          <h1 class="h-name">Somewhere, a user is <span class=" h-acc">one confusing screen</span> away from a mistake your business will have to deal with</h1>
          
-          <p class="h-desc">I help <strong>healthcare </strong>and <strong>safety-critical</strong> product teams design systems that reduce errors, simplify complex 
-            workflows, and help professionals make fast, accurate decisions when every second matters.
-             My approach combines research, systems thinking, and accessibility to make critical 
-             products easier—and safer—to use.</p>
+          <p class="h-desc">I design products where a confusing screen has real consequences, not just a bad review: think emergency response, safety tools, and other high-pressure situations. I dig into how people actually think and act under pressure, then build that understanding into something simple enough to use without a second thought.</p>
 
               
           <div class="h-btns">
@@ -110,10 +121,10 @@ src="images/portrait_3.jpg"        style="height: fit-content;"      alt="Willia
               <div class="av-dot" id="avd1" onclick="switchAvatar(1)"></div>
               <div class="av-dot" id="avd2" onclick="switchAvatar(2)"></div>
             </div>
-            <div class="fbadge fb1">&#x1F3A8; Product Designer</div>
-            <div class="fbadge fb2">&#x1F4DC; Google UX Certified</div>
-            <div class="fbadge fb3">&#x1F4BB; Dev &rarr; Design</div>
-            <div class="fbadge fb4">&#x1F4Bc; Accessibility </div>
+            <div class="fbadge fb1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;margin-right:5px"><path d="M12 3.5a8.5 7.2 0 1 0 0 14.4c1.1 0 1.8-.7 1.8-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.7-1.6 1.6-1.6h1.9a3.7 3.7 0 0 0 3.7-3.7c0-3-3.6-5.1-8-5.1Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7.2" cy="10" r="1.1" fill="currentColor"/><circle cx="9.5" cy="6.8" r="1.1" fill="currentColor"/><circle cx="13.5" cy="6.5" r="1.1" fill="currentColor"/></svg>Product Designer</div>
+            <div class="fbadge fb2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;margin-right:5px"><circle cx="12" cy="9" r="5.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Google UX Certified</div>
+            <div class="fbadge fb3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;margin-right:5px"><rect x="2.5" y="4.5" width="19" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 20.5h8M12 16.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 8.5l2.5 2.5-2.5 2.5M11.5 13.5h3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dev &rarr; Design</div>
+            <div class="fbadge fb4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;margin-right:5px"><circle cx="15" cy="5" r="2" fill="currentColor"/><path d="M11 8v5l4 2.5M11 13H6m5 0l-2.5 7M15 15.5l2.5 5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="17" r="3.8" stroke="currentColor" stroke-width="1.7"/></svg>Accessibility</div>
           </div>
         </div>
       </div>
@@ -153,8 +164,8 @@ src="images/portrait_3.jpg"        style="height: fit-content;"      alt="Willia
           <div>
             <div class="chip" style="margin-bottom:14px; font-size: 1rem"><span class="cdot"></span> What I have done</div>
             <h2 class="feat-h">Selected <span class="em">Case Studies</span></h2>
-            <p class="h-desc">Real projects exploring how thoughtful UX can reduce complexity, improve 
-              clarity, and support better decisions in healthcare and other complex systems.</p>
+            <p class="h-desc">Real projects exploring how thoughtful design can reduce complexity, improve 
+              clarity, and support better decisions in safety-critical and other complex systems.</p>
           </div>
           <a class="see-all" href="work.html">View All Work &rarr;</a>
         </div>
@@ -377,36 +388,40 @@ src="images/portrait_3.jpg"        style="height: fit-content;"      alt="Willia
           <h2> <span class="em">I don't start with screens. </span>I start with the decisions people need to make.</h2>
           
           <div class="p">
-            <p>Every <strong>healthcare</strong> product is built to help someone make a decision.</p>
+            <p>Every <strong>high-stakes</strong> product is built to help someone make a decision.</p>
             <p>But when workflows become confusing, information is difficult to find, or 
-              the next step isn't obvious, people hesitate, make mistakes, or rely on workarounds.</p>
+              the next step isn't obvious, people hesitate, make mistakes, or rely on workarounds, and their business ends up dealing with the fallout.</p>
             <p>That's why <strong>I look beyond individual screens.</strong></p>
             <p><strong>I study </strong> how people, information, and processes interact before designing experiences 
               that make critical tasks easier to understand and complete.</p>
             <p>Because better interfaces don't just look cleaner.</p>
             <p> They help people make better decisions.</p>
-            <p><strong>I'm Divine, a Healthcare UX Designer </strong> helping product teams design safer digital 
-              experiences that reduce errors and improve decision-making in high-pressure environments.</p>
+            <p><strong>I'm Divine, a Product/UX Designer </strong> who gravitates toward safety-critical and high-stakes work, helping teams design experiences 
+              that reduce errors and improve decision-making under pressure.</p>
           </div>
           <div class="ab-btns">
-            <a class="btn btn-fill" href="about.html">Full About Page &rarr;</a>
-            <button class="btn btn-out" onclick="openCV()">Download CV &#x1F4C4;</button>
+            <a class="btn btn-fill" href="about.html">Know More &rarr;</a>
+            <button class="btn btn-out" onclick="openCV()">Download CV</button>
           </div>
         </div>
         <div class="ab-stats">
           <div class="astat">
-            <div class="astn">12+</div>
-            <div class="astl">Projects</div>
+            <div class="asti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="8" width="18" height="11" rx="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 8V6.3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 12.5h18" stroke="currentColor" stroke-width="1.8"/></svg></div>
+            <div class="astn">Business</div>
+            <div class="astl">Certified</div>
           </div>
           <div class="astat">
-            <div class="astn">Dev</div>
+            <div class="asti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="4.5" width="19" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 20.5h8M12 16.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 8.5l2.5 2.5-2.5 2.5M11.5 13.5h3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="astn">Coding</div>
             <div class="astl">Background</div>
           </div>
           <div class="astat">
-            <div class="astn">15</div>
-            <div class="astl">Certs</div>
+            <div class="asti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="8" r="3.4" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 20c.6-3.6 2.8-5.6 5.5-5.6s4.9 2 5.5 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17.5 8.8c0-1.5-1.2-2.5-2.5-2.3-.8.1-1.4.7-1.6 1.4-.2-.7-.8-1.3-1.6-1.4-1.3-.2-2.5.8-2.5 2.3 0 1.8 2.2 3.1 4.1 4.2 1.9-1.1 4.1-2.4 4.1-4.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+            <div class="astn">Your Users</div>
+            <div class="astl">Built For</div>
           </div>
           <div class="astat">
+            <div class="asti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l1.7 5.8 5.8 1.7-5.8 1.7-1.7 5.8-1.7-5.8-5.8-1.7 5.8-1.7L12 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M19.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
             <div class="astn">&#x221E;</div>
             <div class="astl">Curiosity</div>
           </div>
@@ -417,13 +432,13 @@ src="images/portrait_3.jpg"        style="height: fit-content;"      alt="Willia
     <!-- Slide 3: Contact -->
     <div class="slide" id="contact">
       <div class="contact-in">
-        <p class="ct-chip">&#x2709;&#xFE0F; Let's Work Together</p>
-        <h2 class="ct-title">Got a project<br /><span class="ca">in mind?</span> &#x1F680;</h2>
+        <p class="ct-chip">Let's Work Together</p>
+        <h2 class="ct-title">Got a project<br /><span class="ca">in mind?</span></h2>
         <p class="ct-sub">Whether it's a product from scratch or a design needing fresh eyes - let's build something
           great.</p>
         <div style="display:flex; flex-direction:column; gap:20px; align-items:center; margin-top: 40px;">
           <a href="https://calendly.com/williamsdivine/30min" target="_blank" class="btn btn-cal"
-            style="padding:12px 36px; height: 56px; font-size:1.1rem; border-radius:50px;">&#x1F4C5; Book a 30-min Call</a>
+            style="padding:12px 36px; height: 56px; font-size:1.1rem; border-radius:50px;">Book a 30-min Call</a>
           <div class="ct-email-pill">
             <span class="ct-email-txt">williamsdivine.official@gmail.com</span>
             <button class="ct-copy" onclick="copyEmail()">
@@ -436,7 +451,7 @@ src="images/portrait_3.jpg"        style="height: fit-content;"      alt="Willia
             </button>
           </div>
           <a href="https://linkedin.com/in/Williams-Divine" target="_blank" class="btn btn-gl"
-            style="margin-top: 10px;">LinkedIn &#x1F517;</a>
+            style="margin-top: 10px;">LinkedIn</a>
         </div>
         <div class="slide-footer">
           <div class="fl" href="index.html">Divine.</div>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Apply saved theme before paint, to avoid a light-mode flash -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0YDNBXJVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-K0YDNBXJVL');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>AKUM Portal Case Study - Williams Divine</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%237B5EA7'/%3E%3Ctext x='32' y='45' font-family='Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='white' font-weight='900'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    #pg-cs-akum .cs-step { padding: 100px 0 !important; }
+    #pg-cs-akum .step-label { margin-bottom: 26px; }
+    #pg-cs-akum .cs-step p { margin-bottom: 18px; }
+    #pg-cs-akum .pn svg { color: var(--icon); vertical-align: -2px; }
+
+    /* ---------- Narrative bridges between sections ---------- */
+    #pg-cs-akum .csx-bridge {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    #pg-cs-akum .csx-bridge.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #pg-cs-akum .csx-bridge::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--acc);
+      opacity: 0.5;
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+    #pg-cs-akum .csx-bridge-sub {
+      display: block;
+      margin-top: 14px;
+      font-size: 1.02rem;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--mut);
+    }
+  </style>
+</head>
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curRing"></div>
+
+  <div class="mob" id="mob">
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Archive</a>
+    <button onclick="openCV()">CV</button>
+    <button onclick="closeMob()" class="btn mob-cta"><a href="../index.html#contact">Say Hi &#x1F44B;</a></button>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><a href="../index.html" style="text-decoration:none;color:inherit">Divine Williams<span>.</span></a><span class="nav-logo-title">(UX/Product Designer)</span></div>
+    <div class="nav-desk" id="navDesk">
+      <a id="nl-home" href="../index.html">Home</a>
+      <a id="nl-work" href="../work.html">Work</a>
+      <a id="nl-about" href="../about.html">About</a>
+      <a id="nl-about" href="../archive.html">Archive</a>
+      <button onclick="openCV()">CV</button>
+      <button class="theme-btn" id="themeBtn">
+        <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg id="themeIconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a class="btn nav-cta" href="../index.html#contact">Say Hi &#x1F44B;</a>
+    </div>
+    <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="pg-cs-akum" class="page">
+    <div class="cs-page">
+      <button class="cs-back" onclick="window.location='../work.html'">&larr; Back to Work</button>
+      <div class="cs-meta"><span class="tag ta">EdTech</span><span class="tag tp">Portal</span><span class="tag tp">UX
+          Audit</span></div>
+      <h1 class="cs-title">AKUM University <span class="em">Course Portal <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-4px;margin-left:4px"><path d="M12 4.5L2.5 9 12 13.5 21.5 9 12 4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6.5 11.2v4.3c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.5 9v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></h1>
+      <p class="cs-sub">Replacing pen-and-paper course registration with a seamless digital flow students can complete
+        remotely, even before resumption.</p>
+      <div class="cs-top-links"><a href="https://www.figma.com/proto/8lQJpHkYapQemn6qUKDy3A/AKUM_FIGMA?node-id=39-3511"
+          target="_blank" class="btn btn-dark">View Prototype &rarr;</a><a
+          href="https://www.figma.com/design/8lQJpHkYapQemn6qUKDy3A/AKUM_FIGMA?node-id=26-205" target="_blank"
+          class="btn btn-ghost">Figma File</a><a href="https://www.figma.com/board/cjMvVPa4WtlyMq8PG1wzGC/AKUM_FIGJAM"
+          target="_blank" class="btn btn-ghost">FigJam</a></div>
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <div class="cssn">EdTech</div>
+          <div class="cssl">Category</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Sole</div>
+          <div class="cssl">Designer</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Web+</div>
+          <div class="cssl">Mobile</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cssn">Remote</div>
+          <div class="cssl">Focus</div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.9"/><path d="M15.5 15.5L20.5 20.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+          <h2>Overview</h2>
+        </div>
+        <p>At AKUM University, course registration still runs entirely on pen and paper. Students physically collect forms, walk across campus to get advisor signatures, and hope those paper records don't get lost. It's slow, error-prone, and simply impossible to do remotely.</p>
+        <p>Every lost form or missed signature isn't just a student's bad day. It's a registration error, a records dispute, or a semester the university has to sort out by hand.</p>
+      </div>
+    </div>
+
+    <p class="csx-bridge">Who actually deals with this process every semester?<span class="csx-bridge-sub">This section introduces the student AKUM's portal is designed for.</span></p>
+
+    <div class="cs-step cs-acc">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="7.5" r="3.6" stroke="currentColor" stroke-width="1.9"/><path d="M4.5 20c.7-4 3.6-6.3 7.5-6.3s6.8 2.3 7.5 6.3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+          <h2>Meet Muna</h2>
+        </div>
+        <div class="persona-card">
+          <div class="persona-vis">
+            <div class="pa-avatar"><svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="sk_mn" cx="45%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#D4956A" />
+                    <stop offset="100%" stop-color="#A06830" />
+                  </radialGradient>
+                </defs>
+                <circle cx="70" cy="70" r="70" fill="#1E3A5F" />
+                <path d="M28 106 Q70 94 112 106 L112 140 L28 140Z" fill="#204080" />
+                <rect x="46" y="110" width="48" height="20" rx="4" fill="#1a3359" />
+                <line x1="62" y1="106" x2="58" y2="120" stroke="#4a6fa5" stroke-width="2" />
+                <line x1="78" y1="106" x2="82" y2="120" stroke="#4a6fa5" stroke-width="2" />
+                <rect x="62" y="92" width="16" height="13" rx="5" fill="#C48050" />
+                <circle cx="70" cy="61" r="28" fill="url(#sk_mn)" />
+                <ellipse cx="40" cy="63" rx="4" ry="5" fill="#B07040" />
+                <ellipse cx="100" cy="63" rx="4" ry="5" fill="#B07040" />
+                <circle cx="70" cy="36" r="32" fill="#1a0800" />
+                <circle cx="70" cy="40" r="28" fill="#2a1200" />
+                <circle cx="52" cy="34" r="3.5" fill="#1a0800" />
+                <circle cx="64" cy="27" r="4" fill="#1a0800" />
+                <circle cx="76" cy="26" r="4" fill="#1a0800" />
+                <circle cx="88" cy="32" r="3.5" fill="#1a0800" />
+                <circle cx="93" cy="44" r="3" fill="#1a0800" />
+                <circle cx="47" cy="44" r="3" fill="#1a0800" />
+                <path d="M50 29 Q70 21 90 29" stroke="#3a2210" stroke-width="3" fill="none" opacity=".5" />
+                <ellipse cx="58" cy="61" rx="4.5" ry="5.5" fill="white" />
+                <ellipse cx="82" cy="61" rx="4.5" ry="5.5" fill="white" />
+                <circle cx="58" cy="62" r="3.5" fill="#2a1000" />
+                <circle cx="82" cy="62" r="3.5" fill="#2a1000" />
+                <circle cx="58" cy="62" r="2" fill="#4a2800" />
+                <circle cx="82" cy="62" r="2" fill="#4a2800" />
+                <circle cx="59.5" cy="60.5" r="1.3" fill="white" />
+                <circle cx="83.5" cy="60.5" r="1.3" fill="white" />
+                <path d="M51 55 Q58 51.5 64 54" stroke="#1a0800" stroke-width="2.5" fill="none"
+                  stroke-linecap="round" />
+                <path d="M76 54 Q82 51.5 89 55" stroke="#1a0800" stroke-width="2.5" fill="none"
+                  stroke-linecap="round" />
+                <path d="M66 68 Q70 73 74 68" stroke="#7a4018" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                <circle cx="66" cy="68" r="1.8" fill="#8a5020" opacity=".5" />
+                <circle cx="74" cy="68" r="1.8" fill="#8a5020" opacity=".5" />
+                <path d="M60 76 Q70 85 80 76" stroke="#4a2008" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <path d="M62 77 Q70 83 78 77" fill="rgba(255,220,200,.5)" />
+                <circle cx="60" cy="76" r="1.5" fill="#8a5028" opacity=".4" />
+                <circle cx="80" cy="76" r="1.5" fill="#8a5028" opacity=".4" />
+                <circle cx="39" cy="65" r="2.5" fill="#D4AF37" />
+                <circle cx="101" cy="65" r="2.5" fill="#D4AF37" />
+              </svg></div>
+            <div class="pa-name">Muna</div>
+            <div class="pa-role">Student &bull; AKUM University</div>
+          </div>
+          <div class="persona-body">
+            <h4>Undergraduate &bull; On-The-Go</h4>
+            <p>Wants to register courses without being physically on campus. Prefers completing registration immediately
+              after payment - even before resumption - so she can focus on other areas of her life.</p>
+            <blockquote class="pa-quote">"I want to be able to register my courses seamlessly even while on the go."
+            </blockquote>
+            <div class="pa-details">
+              <div class="pd-item">
+                <div class="pd-label">Goal</div>
+                <div class="pd-val">Register remotely</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Frustration</div>
+                <div class="pd-val">Physical forms &amp; long walks</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Need</div>
+                <div class="pd-val">Do it before resumption</div>
+              </div>
+              <div class="pd-item">
+                <div class="pd-label">Context</div>
+                <div class="pd-val">Active student, always busy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="height:24px"></div>
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 9.5l2-1.3M16 9.5l-2-1.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8.7" cy="11" r="1" fill="currentColor"/><circle cx="15.3" cy="11" r="1" fill="currentColor"/><path d="M8.5 16c1-1.3 2.2-2 3.5-2s2.5.7 3.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <h2>Pain Points</h2>
+        </div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn">01</span><span>Students strongly dislike the pen-and-paper process</span>
+          </li>
+          <li class="pitem"><span class="pn">02</span><span>Must walk distances to collect forms and get advisor
+              signatures</span></li>
+          <li class="pitem"><span class="pn">03</span><span>Difficult to safely keep and track physical registration
+              forms</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cs-imgs-block"
+      style="background:rgba(32,64,128,0.05); border-radius:16px; padding:40px 20px; margin:40px 0;">
+      <div class="cs-imgs-lbl"
+        style="color:var(--text); text-align:center; margin-bottom:12px; font-weight:700; font-size:1.4rem;">Digital
+        Registration Flow: Wireframe to Mockup</div>
+      <p
+        style="text-align:center; color:var(--mut); margin-bottom:30px; font-size:0.95rem; max-width:600px; margin-left:auto; margin-right:auto;">
+        Converting complex pen-and-paper administrative structures into an intuitive, step-by-step digital flow.</p>
+      <div style="display:flex; flex-direction:column; gap:40px; align-items:center;">
+        <div style="width:100%; text-align:center;">
+          <h4 style="margin-bottom:12px; color:var(--acc);">1. Digital Wireframes</h4>
+          <img loading="lazy" decoding="async" src="../images/Akum Wireframes (1).png" alt="AKUM Digital Wireframes"
+            style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);" />
+        </div>
+        <div style="width:100%; text-align:center;">
+          <h4 style="margin-bottom:12px; color:var(--acc);">2. High-Fidelity Mockups</h4>
+          <img loading="lazy" decoding="async" src="../images/AKUM Mockups.png" alt="AKUM High-Fidelity Mockups"
+            style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.12);" />
+        </div>
+      </div>
+    </div>
+
+    <p class="csx-bridge">So what does replacing all that paper actually look like?<span class="csx-bridge-sub">This section covers the key features the digital portal delivers.</span></p>
+
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18h6M10 21h4M8 14.5a5 5 0 1 1 8 0c-.8.9-1.5 1.7-1.5 3H9.5c0-1.3-.7-2.1-1.5-3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h2>Solution Highlights</h2>
+        </div>
+        <ul class="plist">
+          <li class="pitem"><span class="pn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Digital registration available remotely, before
+              resumption</span></li>
+          <li class="pitem"><span class="pn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Access to previous session courses and full
+              registration history</span></li>
+          <li class="pitem"><span class="pn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Accessible button sizes for different hand
+              sizes</span></li>
+          <li class="pitem"><span class="pn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Legible typography + high-contrast colour system
+              throughout</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="csx-bridge">What does this actually look like in practice?<span class="csx-bridge-sub">Explore the working prototype below.</span></p>
+
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="2.5" width="10" height="19" rx="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <h2>Live Prototype</h2>
+        </div>
+        <div class="proto-embed">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/8lQJpHkYapQemn6qUKDy3A/AKUM_FIGMA?node-id=39-3511"
+            allowfullscreen title="AKUM Prototype"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <p class="csx-bridge">So what did this project actually teach me?<span class="csx-bridge-sub">A short reflection to close things out.</span></p>
+
+    <div class="cs-step">
+      <div class="cs-step-inner">
+        <div class="step-label"><span class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.5h4M10.5 3.5v5.3L6.2 16a2.3 2.3 0 0 0 2 3.5h7.6a2.3 2.3 0 0 0 2-3.5l-4.3-7.2V3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.7 14.5h6.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <h2>Learnings</h2>
+        </div>
+        <p>Turning a complex, multi-step institutional process into a clear, guided journey was the core challenge. It also deepened my Figma skills significantly, especially with components, variables, styles, and end-to-end prototyping.</p>
+      </div>
+    </div>
+    <div class="cs-links-sec"><a href="https://www.figma.com/proto/8lQJpHkYapQemn6qUKDy3A/AKUM_FIGMA?node-id=39-3511"
+        target="_blank" class="btn btn-dark">View Prototype &rarr;</a><a
+        href="https://www.figma.com/design/8lQJpHkYapQemn6qUKDy3A/AKUM_FIGMA?node-id=26-205" target="_blank"
+        class="btn btn-ghost">Figma File</a><a href="https://www.figma.com/board/cjMvVPa4WtlyMq8PG1wzGC/AKUM_FIGJAM"
+        target="_blank" class="btn btn-ghost">FigJam</a></div>
+    <div class="cs-nav"><button class="cs-nav-btn" onclick="window.location='../projects/maamaka.html'">&larr; MaAmaka</button><button
+        class="cs-nav-btn" onclick="window.location=''"></button></div>
+    <footer class="page-footer">
+      <div class="page-footer-in">
+      <div class="pfl" onclick="window.location='../index.html'">Divine.</a></div>
+      <p class="pfc">&copy; <span class="copy-year">2026</span> Williams Divine</p>
+      <div class="pflinks"><a onclick="window.location='../work.html'">Work</a><a onclick="window.location='../about.html'">About</a><a
+          onclick="window.location='../index.html#contact'">Contact</a></div>
+    </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="zoom-modal" id="zModal" onclick="closeZ()">
+    <div class="zoom-close" onclick="closeZ()">&times;</div><img class="zoom-content" id="zImg">
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+<!-- CV Modal -->
+<div id="cvModal" class="cv-modal">
+  <div class="cv-content">
+
+    <div class="cv-header">
+      <h3>Divine Williams - CV</h3>
+      <span class="close-btn" onclick="closeCV()">&times;</span>
+    </div>
+
+    <iframe
+      src="WilliamsDivine-ProductDesigner.pdf"
+      width="100%"
+      height="500px">
+    </iframe>
+
+    <div class="cv-footer">
+      <a
+        href="WilliamsDivine-ProductDesigner.pdf"
+        download="Williams Divine - Product Designer.pdf"
+        class="btn btn-fill ">
+        Download CV
+      </a>
+    </div>
+
+  </div>
+</div>
+</html>

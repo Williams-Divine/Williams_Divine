@@ -14,13 +14,27 @@ if (cur && ring) {
 }
 
 /* --- Theme --- */
-var dark = false;
+var dark = (localStorage.getItem('theme') === 'dark');
+document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+
 var themeBtn = document.getElementById('themeBtn');
+
+function syncThemeIcon() {
+  var moonIcon = document.getElementById('themeIconMoon');
+  var sunIcon = document.getElementById('themeIconSun');
+  if (moonIcon && sunIcon) {
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcon.style.display = dark ? 'block' : 'none';
+  }
+}
+syncThemeIcon();
+
 if (themeBtn) {
   themeBtn.addEventListener('click', function () {
     dark = !dark;
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-    themeBtn.innerHTML = dark ? '&#9728;&#65039;' : '&#127769;';
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    syncThemeIcon();
   });
 }
 
@@ -254,3 +268,26 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clos
 document.querySelectorAll('.copy-year').forEach(function(el) {
   el.textContent = new Date().getFullYear();
 });
+
+/* --- Bridge fade-in on scroll (case study section transitions) --- */
+(function() {
+  var bridges = document.querySelectorAll('.csx-bridge, .ras-bridge');
+  if (!bridges.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: just show them all if the browser can't observe
+    bridges.forEach(function (b) { b.classList.add('in-view'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target); // reveal once, then leave it visible
+      }
+    });
+  }, { threshold: 0.35 });
+
+  bridges.forEach(function (b) { observer.observe(b); });
+})();
